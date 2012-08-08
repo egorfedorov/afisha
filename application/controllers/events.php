@@ -217,6 +217,15 @@ class Events extends ControllerBase
         $this->data['content'] = 'front/events_list';
         $this->load->view('front/layout', $this->data);
     }
+    function add_event()
+    {
+        //$this->data['events'] = $this->mevents->events_list_by_category($name);
+        //print_r($this->data['events']);die;
+        //if (!$this->data['events']) show_404();
+
+        $this->data['content'] = 'front/add_event';
+        $this->load->view('front/layout', $this->data);
+    }
 	function popular_article()
 	{
        // echo 'asdf';die;

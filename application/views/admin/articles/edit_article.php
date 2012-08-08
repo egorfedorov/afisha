@@ -29,28 +29,8 @@
 	                <div class="form_input"><textarea  class="xxlarge"  tabindex="1" cols="60" rows="6" name="anons_ru"><?=$page['anons_ru']?></textarea></div>    
                 </li>
                 <li>
-                    <label class="label notice">Видео </label>
-	                <div class="form_input"><input type="text" value="<?=$page['video']?>" class="text medium"  name="video" /></div>
-                    <div style="margin-right:25px; float:right; width: 75%;">(URL - https://www.youtube.com/watch?v=QSJudzPaVTY&feature=related)</div>
-
-                     <? if($page['video'] != ''):?>
-                        <div style="margin-top:100px;">
-                        <object class="video">
-								<param name="movie" value="<?=$page['video']?>">
-								<param name="allowFullScreen" value="true">
-								<param name="allowscriptaccess" value="always">
-								<embed src="<?=$page['video']?>" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" height="200" width="200">
-					    </object>
-					    <span class="data_actions iconsweet del_top">
-							<a class="tip_north" onclick="if (confirm('Вы действительно хотите удалить это видео?')) {window.location.href='http://elfresco/admin/articles/delete_video/<?=$page[id]?>';}" href="#" original-title="Delete">X</a>
-						</span>
-                        </div>
-                    <? endif;?>
-
-                </li>
-                <li>
-                    <label class="label notice">Фото</label>
-	                <div id="file_uploader">
+                    <label class="label notice">Фото 1</label>
+	                <div id="file_uploader" class="form_input">
                 	    <input id="file_upload" type="file" name="file_upload" />
                     </div>
                     <? if($page['image'] != ''):?>
@@ -60,6 +40,44 @@
 						</span>
                     <? endif;?>
                 </li>
+                <li>
+                    <label class="label notice">Фото 2</label>
+                    <div id="file_uploader" class="form_input">
+                        <input id="file_upload" type="file" name="file_upload" />
+                    </div>
+                    <? if($page['image'] != ''):?>
+                    <img src="<?=base_url()?>uploads/<?=$page['image']?>" alt="" style="width:250px; margin:0 auto;"/>
+                    <span class="data_actions iconsweet" >
+							<a class="tip_north" onclick="if (confirm('Вы действительно хотите удалить это изображение?')) {window.location.href='http://elfresco/admin/articles/delete_img/<?=$page[id]?>/<?=$page[image]?>';}" href="#" original-title="Delete">X</a>
+						</span>
+                    <? endif;?>
+                </li>
+                <li>
+                    <label class="label notice">Фото 3</label>
+                    <div id="file_uploader" class="form_input">
+                        <input id="file_upload" type="file" name="file_upload" />
+                    </div>
+                    <? if($page['image'] != ''):?>
+                    <img src="<?=base_url()?>uploads/<?=$page['image']?>" alt="" style="width:250px; margin:0 auto;"/>
+                    <span class="data_actions iconsweet" >
+							<a class="tip_north" onclick="if (confirm('Вы действительно хотите удалить это изображение?')) {window.location.href='http://elfresco/admin/articles/delete_img/<?=$page[id]?>/<?=$page[image]?>';}" href="#" original-title="Delete">X</a>
+						</span>
+                    <? endif;?>
+                </li>
+                <li>
+                    <label class="label notice">Фото 4</label>
+                    <div id="file_uploader" class="form_input">
+                        <input id="file_upload" type="file" name="file_upload" />
+                    </div>
+                    <? if($page['image'] != ''):?>
+                    <img src="<?=base_url()?>uploads/<?=$page['image']?>" alt="" style="width:250px; margin:0 auto;"/>
+                    <span class="data_actions iconsweet" >
+							<a class="tip_north" onclick="if (confirm('Вы действительно хотите удалить это изображение?')) {window.location.href='http://elfresco/admin/articles/delete_img/<?=$page[id]?>/<?=$page[image]?>';}" href="#" original-title="Delete">X</a>
+						</span>
+                    <? endif;?>
+                </li>
+
+
                 <li>
                     <label class="label notice">Содержание</label>
                     <textarea  id="wyswig" name="text_ru"><?=$page['text_ru']?></textarea>

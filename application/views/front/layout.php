@@ -167,6 +167,10 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
         </form>
     </div-->
     <div class="line"></div>
+    <div>
+        <a href="<?=base_url()?>events/add_event" class="button medium white">Добавить событие</a>
+    </div>
+    <div class="line"></div>
     <div class="block_blog_category">
         <h4>категории</h4>
         <ul class="list2">

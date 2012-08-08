@@ -9,7 +9,7 @@ class Articles extends CI_Controller
 		parent::__construct();
 		$this->load->helper('http_auth');
 		$this->load->model('marticles');
-		$this->load->model('mcomment');
+
 		$this->data['menu_section'] = 'articles';
 		$this->data['msg'] = false;	
 	}
@@ -22,7 +22,7 @@ class Articles extends CI_Controller
 	function articles_list()
 	{
 		// Get page
-		$this->data['articles'] = $this->marticles->articles_list_admin(null, null, false,'pub_date','desc');
+		$this->data['articles'] = $this->marticles->articles_list();
 		
 		// Prepare view
 		$this->data['body'] = 'admin/articles/articles_list';

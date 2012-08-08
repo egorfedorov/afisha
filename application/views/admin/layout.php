@@ -98,7 +98,7 @@
 <h2>Разделы</h2>
 <ul>
 	<li><a href="<?=base_url()?>admin/events"><span class="iconsweet">C</span>Список событий</a></li>
-    <li><a href="<?=base_url()?>admin/comments"><span class="iconsweet">}</span>Новые комментарии</a></li>
+    <li><a href="<?=base_url()?>admin/articles"><span class="iconsweet">}</span>Список статей блога</a></li>
     <li><a href="<?=base_url()?>admin/promo"><span class="iconsweet">R</span>Акции</a></li>
     <!--li><a href="#"><span class="iconsweet">S</span>Worklog</a></li-->
 </ul>
