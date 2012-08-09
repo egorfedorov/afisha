@@ -22,38 +22,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1431" column="17" selection-start="88743" selection-end="88743" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="articles.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="articles.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/admin/articles.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="66" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0">
+            <state line="72" column="43" selection-start="2059" selection-end="2059" vertical-scroll-proportion="0.425">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/layout.php">
+      <file leaf-file-name="blog.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/blog.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="22" selection-start="5995" selection-end="5995" vertical-scroll-proportion="-10.461538">
+            <state line="26" column="20" selection-start="873" selection-end="873" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit_article.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="edit_article.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/admin/articles/edit_article.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="0" selection-start="4902" selection-end="4902" vertical-scroll-proportion="0.51735014">
-              <folding />
+            <state line="48" column="132" selection-start="3040" selection-end="3040" vertical-scroll-proportion="-12.941176">
+              <folding>
+                <marker date="1344538863431" expanded="true" signature="2360:2411" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -140,9 +133,9 @@
         <option value="$PROJECT_DIR$/application/views/front/add_event.php" />
         <option value="$PROJECT_DIR$/application/views/front/layout.php" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
-        <option value="$PROJECT_DIR$/application/controllers/admin/articles.php" />
         <option value="$PROJECT_DIR$/application/views/admin/layout.php" />
         <option value="$PROJECT_DIR$/application/views/admin/articles/edit_article.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/articles.php" />
       </list>
     </option>
   </component>
@@ -425,14 +418,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34123564" sideWeight="0.66852367" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34698275" sideWeight="0.321727" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.321727" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -499,11 +492,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/controllers/article.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="26" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../apache/conf/extra/httpd-vhosts.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="38" selection-start="1397" selection-end="1397" vertical-scroll-proportion="0.0" />
@@ -511,16 +499,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/front/layout.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="76" selection-start="8350" selection-end="8369" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="170" column="76" selection-start="8350" selection-end="8369" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://D:/Afisha/morphis_html/css/layout.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="487" column="5" selection-start="18486" selection-end="18706" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="487" column="5" selection-start="18486" selection-end="18706" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/front/login.php">
@@ -533,6 +517,16 @@
         <state line="37" column="0" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1431" column="17" selection-start="88743" selection-end="88743" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/marticles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="26" selection-start="253" selection-end="266" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/events/events_list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="116" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0" />
@@ -540,9 +534,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/events.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="225" column="44" selection-start="8999" selection-end="8999" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="225" column="44" selection-start="8999" selection-end="8999" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/front/add_event.php">
@@ -560,37 +552,32 @@
         <state line="14" column="38" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1431" column="17" selection-start="88743" selection-end="88743" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/marticles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="26" selection-start="253" selection-end="266" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin/articles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="66" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/layout.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="22" selection-start="5995" selection-end="5995" vertical-scroll-proportion="-10.461538">
+        <state line="88" column="22" selection-start="5995" selection-end="5995" vertical-scroll-proportion="0.14195584">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/blog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="20" selection-start="873" selection-end="873" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/articles/edit_article.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="0" selection-start="4902" selection-end="4902" vertical-scroll-proportion="0.51735014">
+        <state line="48" column="132" selection-start="3040" selection-end="3040" vertical-scroll-proportion="-12.941176">
+          <folding>
+            <marker date="1344538863431" expanded="true" signature="2360:2411" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/articles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="43" selection-start="2059" selection-end="2059" vertical-scroll-proportion="0.425">
           <folding />
         </state>
       </provider>

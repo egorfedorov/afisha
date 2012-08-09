@@ -8,7 +8,7 @@ class Articles extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->helper('http_auth');
-		$this->load->model('marticles');
+		$this->load->model(array('marticles', 'mimages'));
 
 		$this->data['menu_section'] = 'articles';
 		$this->data['msg'] = false;	
@@ -43,7 +43,8 @@ class Articles extends CI_Controller
 		// Get page
 		$this->data['page'] = $this->marticles->article_info($id);
 		$this->data['page']['pub_date'] = date('d-m-Y H:i', strtotime($this->data['page']['pub_date']));
-		
+        $this->data['article_images'] = $this->mimages->event_img($this->data['page']['id']);
+       //print_r($this->data['article_images']);die;
 		// Prepare view
 		$this->data['action_title'] = 'Редактирование статьи';
 		$this->data['body'] = 'admin/articles/edit_article';
@@ -53,6 +54,9 @@ class Articles extends CI_Controller
 	function submit()
 	{
 		// POST data
+        print_r($_POST);
+        print_r($_FILES);
+        die;
 		$id = $this->input->post('id');		
 		$article['title_ru'] = $this->input->post('title_ru');
 
@@ -63,42 +67,29 @@ class Articles extends CI_Controller
         $video = $this->input->post('video');
 		$article['pub_date'] = date('Y-m-d H:i:s', strtotime($this->input->post('pub_date')));		
 
-        if(strpos ( $video , 'youtube' , 0 )){
-            $repl = '';
-            $video = str_replace ('watch?', $repl, $video);
-            $repl = '/v/';
-            $video = str_replace ('/v=', $repl, $video);
-
-        }elseif(strpos ( $video , 'vimeo.com' , 0 )){
-            $repl = '';
-            $video = str_replace ('http://vimeo.com/', $repl, $video);
-            $video = 'http://player.vimeo.com/video/'.$video.'?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179';
-        }
-        echo $video;
-        $article['video'] = $video;
-
 		// Validation
 		// ...
        /// print_r($_FILES);die;
-		if($_FILES['file_upload']['size'] != 0){
-        $config['upload_path'] = './uploads/';
-		$config['allowed_types'] = 'gif|jpg|png';
-		$this->load->library('upload', $config);
+        foreach($_FILES as $name => $file){
+		    if($_FILES['file_upload']['size'] != 0){
+                $config['upload_path'] = './uploads/';
+		        $config['allowed_types'] = 'gif|jpg|png';
+		        $this->load->library('upload', $config);
         
-		if ( !$this->upload->do_upload('file_upload'))
-		{
-			$error = array('error' => $this->upload->display_errors());
-			$this->data['msg']['type'] = 'error';
-			$this->data['msg']['text'] = $error;
-            print_r($error);die;
+		        if ( !$this->upload->do_upload('file_upload'))
+		        {
+			        $error = array('error' => $this->upload->display_errors());
+			        $this->data['msg']['type'] = 'error';
+			        $this->data['msg']['text'] = $error;
+                    print_r($error);die;
 
-		}
-		else
-		{
-			$data = array('upload_data' => $this->upload->data());
-            $article['image'] = $data['upload_data']['file_name'];
-		}
-
+		        }
+	        	else
+		        {
+			        $data = array('upload_data' => $this->upload->data());
+                    $article['image'] = $data['upload_data']['file_name'];
+		        }
+            }
         }
 		// Inserting/Updating
 		if ($id)
