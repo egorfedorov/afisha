@@ -1,6 +1,6 @@
 <?php
 
-class Main_page extends CI_Controller 
+class Slider extends CI_Controller
 {
 	private $data;
 
@@ -9,31 +9,27 @@ class Main_page extends CI_Controller
 		parent::__construct();
 		$this->load->helper('http_auth');
 		$this->load->model('mconfig');		
-		$this->load->model('mpages');
+		$this->load->model('mslider');
 		$this->data['msg'] = false;
 		$this->data['menu_section'] = 'main_page';	
 	}
-    function slider()
+    function index()
     {
-        $this->data['action_title'] = 'Добавление картинки в слайдер';
-        $this->data['body'] = 'admin/main_page/slider';
+        $this->data['action_title'] = 'Список слайдов';
+        $this->data['sliders'] = $this->mslider->slider_list();
+        $this->data['body'] = 'admin/slider/slider_list';
         $this->load->view('admin/layout', $this->data);
 
     }
-	function index()
-	{
-		// Main page config
-		$config_keys = array('main_page_block', 'main_page_miniblock_1', 'main_page_miniblock_2', 'main_page_miniblock_3','banner1','banner2','banner3','banner_deposit','banner_galery', 'banner_deposit_link', 'banner_galery_link');
-		$this->data['main_page_config'] = $this->mconfig->get_values($config_keys);				
-		
-		// Get all pages
-		$this->data['pages'] = $this->mpages->pages_list(array('id', 'title_ru'));			 
-		
-		// Prepare view
-		$this->data['action_title'] = 'Редактирование главной страници';
-		$this->data['body'] = 'admin/main_page/page';
-		$this->load->view('admin/layout', $this->data);
-	}
+    function add()
+    {
+        // Prepare view
+        $this->data['action_title'] = 'Добавление новой статьи';
+        $this->data['page'] = array('title_ru' => '', 'title_ua' => '', 'anons_ru' => '', 'anons_ua' => '', 'pub_date' => date('d-m-Y H:i'), 'text_ru' => '', 'text_ua' => '', 'video' => '','id' => '');
+        $this->data['body'] = 'admin/articles/edit_article';
+        $this->load->view('admin/layout', $this->data);
+    }
+
 	
 	function submit()
 	{

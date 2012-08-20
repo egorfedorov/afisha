@@ -54,9 +54,9 @@ class Articles extends CI_Controller
 	function submit()
 	{
 		// POST data
-        print_r($_POST);
-        print_r($_FILES);
-        die;
+        //print_r($_POST);
+        //print_r($_FILES);
+        //die;
 		$id = $this->input->post('id');		
 		$article['title_ru'] = $this->input->post('title_ru');
 
@@ -64,47 +64,76 @@ class Articles extends CI_Controller
 
 		$article['text_ru'] = $this->input->post('text_ru');
 		
-        $video = $this->input->post('video');
+
 		$article['pub_date'] = date('Y-m-d H:i:s', strtotime($this->input->post('pub_date')));		
 
 		// Validation
 		// ...
-       /// print_r($_FILES);die;
-        foreach($_FILES as $name => $file){
-		    if($_FILES['file_upload']['size'] != 0){
-                $config['upload_path'] = './uploads/';
-		        $config['allowed_types'] = 'gif|jpg|png';
-		        $this->load->library('upload', $config);
-        
-		        if ( !$this->upload->do_upload('file_upload'))
-		        {
-			        $error = array('error' => $this->upload->display_errors());
-			        $this->data['msg']['type'] = 'error';
-			        $this->data['msg']['text'] = $error;
-                    print_r($error);die;
-
-		        }
-	        	else
-		        {
-			        $data = array('upload_data' => $this->upload->data());
-                    $article['image'] = $data['upload_data']['file_name'];
-		        }
-            }
-        }
 		// Inserting/Updating
 		if ($id)
 		{
 			$this->marticles->update_article($id, $article);
 			$this->data['msg']['type'] = 'succeed';
-			$this->data['msg']['text'] = 'Статья "'.$article['title_ru'].'" сохранена.';			 			
+			$this->data['msg']['text'] = 'Статья "'.$article['title_ru'].'" сохранена.';
+            $article_id = $id;
 		}
 		else
 		{
-			$this->marticles->add_article($article);
+			$article_id = $this->marticles->add_article($article);
 			$this->data['msg']['type'] = 'succeed';
 			$this->data['msg']['text'] = 'Статья "'.$article['title_ru'].'" добавлена.';
 		}
-		
+
+        /// print_r($_FILES);die;
+        foreach($_FILES as $name => $file){
+            if($_FILES[$name]['size'] != 0){
+
+
+                $config['upload_path'] = './uploads/images_events/';
+                $config['allowed_types'] = 'gif|jpg|png|jpeg';
+                $this->load->library('upload', $config);
+
+                if ( !$this->upload->do_upload($name))
+                {
+                    $error = array('error' => $this->upload->display_errors());
+                    $this->data['msg']['type'] = 'error';
+                    $this->data['msg']['text'] = $error;
+                    print_r($error);die;
+
+                }else
+                {
+                    $data = array('upload_data' => $this->upload->data());
+                    //print_r($data);die;
+                    $image_name = $data['upload_data']['file_name'];
+                    $image_data = array(
+                        'path' => '/uploads/images_events/'.$image_name,
+                        'item_id' =>$article_id,
+                        'thumb' => '/uploads/images_events/thoumbs/'.$image_name
+                    );
+
+                    $config_res['image_library'] = 'gd2';
+                    $config_res['source_image']	= $data['upload_data']['full_path'];
+                    $config_res['new_image'] = $data['upload_data']['file_path'].'thumbs/'.$image_name;
+                    $config_res['maintain_ratio'] = TRUE;
+                    $config_res['width']	 = 130;
+                    $config_res['height']	= 74;
+
+                    $this->load->library('image_lib', $config_res);
+                    if ( ! $this->image_lib->resize())
+                    {
+                        echo $this->image_lib->display_errors();die;
+                    }
+
+
+                    if($_POST[$name.'_id'] == ''){
+                        $this->mimages->set_img($image_data);
+                    }else{
+                        $this->mimages->update_img($_POST[$name.'_id'], $image_data);
+                    }
+                    //
+		        }
+            }
+        }
 		// Redirecting
 		$this->articles_list();
 	}
@@ -115,7 +144,7 @@ class Articles extends CI_Controller
 		{
 			// Deletting
 			$this->marticles->delete_article($id);
-			$this->mcomment->delete_all_coments($id);
+			//  $this->mcomment->delete_all_coments($id);
 			$this->data['msg']['type'] = 'succeed';
 			$this->data['msg']['text'] = 'Статья успешно удалена.';						
 		}

@@ -45,6 +45,28 @@ $(document).ready(function() {
 			$(this).find('ul').slideUp(100);
 			}
 	)
+    /* -------------- Border Radius plugin  --------------*/
+    $.fn.roundThis = function(radius) {
+        return this.each(function(e) {
+            $(this).css({
+                "border-radius": radius,
+                "-moz-border-radius": radius,
+                "-webkit-border-radius": radius
+            });
+        });
+    };
+
+    // Border Radius portfolio based on parent width or height (responsive)
+    var recentWorks = $("#recent-works").find('.overlay')
+    $(recentWorks).roundThis($(this).width());
+    $(recentWorks).find('img').roundThis($(this).width());
+    $("#latest-blogs").find('.overlay').find('img').roundThis($(this).width());
+    $("#latest-blogs").find('.overlay').roundThis($(this).width());
+
+    $('.pic').roundThis($(this).width());
+    $(".portfolio-items").find('.overlay').find('img').roundThis($(this).width());
+    $(".avatar").find('img').roundThis($(this).width());
+
 });
 function see_big2(){
 	$('.see_big2>div').find('a').hide();

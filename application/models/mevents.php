@@ -28,6 +28,16 @@ class Mevents extends CI_Model
         //echo  $this->db->last_query();die;
 		return $result ? $result : false;
 	}
+    function events_month()
+    {
+        $this->db->where('date != ', '');
+        $this->db->join('owner', 'owner.id = events.id_owner');
+        $this->db->join('category', 'category.id = events.category');
+        $query = $this->db->get('events');
+        $result = $query->result_array();
+        //echo  $this->db->last_query();die;
+        return $result ? $result : false;
+    }
     function events_list_admin()
     {
         $this->db->order_by('id', 'ASC');

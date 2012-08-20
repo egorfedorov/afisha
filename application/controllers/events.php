@@ -25,6 +25,19 @@ class Events extends ControllerBase
         $this->data['content'] = 'front/events_list';
         $this->load->view('front/layout', $this->data);
 	}
+    function today()
+    {
+        $this->data['events'] = $this->mevents->events_list(null, null,'time', 'ASC',date("H:i:s"));
+        $this->data['content'] = 'front/events_list';
+        $this->load->view('front/layout', $this->data);
+    }
+    function month()
+    {
+        $this->data['events'] = $this->mevents->events_month();
+        //print_r($this->data['events']);die;
+        $this->data['content'] = 'front/events_month';
+        $this->load->view('front/layout', $this->data);
+    }
     function curl_file_get_contents($url)
     {
         $curl = curl_init();

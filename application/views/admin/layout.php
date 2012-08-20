@@ -100,7 +100,7 @@
 	<li><a href="<?=base_url()?>admin/events"><span class="iconsweet">C</span>Список событий</a></li>
     <li><a href="<?=base_url()?>admin/articles"><span class="iconsweet">}</span>Список статей блога</a></li>
     <li><a href="<?=base_url()?>admin/promo"><span class="iconsweet">R</span>Акции</a></li>
-    <!--li><a href="#"><span class="iconsweet">S</span>Worklog</a></li-->
+    <li><a href="<?=base_url()?>admin/slider"><span class="iconsweet">S</span>Слайдер</a></li>
 </ul>
 </nav>
 <!--Content Wrap-->

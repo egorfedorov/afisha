@@ -38,14 +38,18 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
 
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/style.css" />
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/prettyPhoto.css" />
+
     <script type="text/javascript" src="<?=base_url()?>public/js/jquery.min.js"></script>
     <script type="text/javascript" src="<?=base_url()?>public/js/jquery.prettyPhoto.js"></script>
     <script type="text/javascript" src="<?=base_url()?>public/js/jquery.inputstext.js"></script>
     <script type="text/javascript" src="<?=base_url()?>public/js/main.js"></script>
     <script type="text/javascript" src="<?=base_url()?>public/js/comm_input_bg.js"></script>
     <script type="text/javascript" src="<?=base_url()?>public/js/post_type2_slider.js"></script>
-
-
+    <script type="text/javascript" src="<?=base_url()?>public/js/custom.quicksand.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>public/js/jquery.quicksand.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>public/js/slider3.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>public/js/jquery.ad-gallery.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/jquery.ad-gallery.css" />
 
 </head>
 <body>

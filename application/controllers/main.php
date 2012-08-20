@@ -14,7 +14,7 @@ class Main extends ControllerBase  {
         $this->data['main_menu'] =  $this->mmenu->menu_items(array('status' => '1'), true);
 
         $this->data['content'] = 'front/main';
-        $this->load->view('front/layout', $this->data);
+        $this->load->view('front/main', $this->data);
 	}
 
     function test_main()

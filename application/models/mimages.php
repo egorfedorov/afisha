@@ -26,6 +26,15 @@ class Mimages extends CI_Model
         $result = $query->result_array();
         return $result ? $result : false;
     }
+    function set_img($data)
+    {
+        $this->db->insert('images', $data);
+    }
+    function update_img($id, $data)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('images', $data);
+    }
 
 }
 

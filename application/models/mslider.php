@@ -1,6 +1,6 @@
 <?php
 
-class Marticles extends CI_Model
+class Mslider extends CI_Model
 {
 	public $language;
 	
@@ -10,25 +10,15 @@ class Marticles extends CI_Model
 		$this->language = $this->config->item('cur_lang') ? $this->config->item('cur_lang') : $this->config->item('language');
 	}		
 	
-	function articles_list()
+	function slider_list()
 	{
 		//$this->db->where($filter);
-        $this->db->order_by('pub_date', 'DESC');
-		$query = $this->db->get('articles');		
+        //$this->db->order_by('pub_date', 'DESC');
+		$query = $this->db->get('slider');
 		$result = $query->result_array();  
 		return $result ? $result : false;
 	}
-    function articles_list_last($limit)
-    {
-        $this->db->select('articles.id, articles.title_ru,images.path');
-        $this->db->join('images', 'images.item_id = articles.id');
-        $this->db->order_by('pub_date', 'DESC');
-        $this->db->group_by("articles.title_ru");
 
-        $query = $this->db->get('articles', $limit, 0 );
-        $result = $query->result_array();
-        return $result ? $result : false;
-    }
 	  
 	function article_info($id)
 	{
