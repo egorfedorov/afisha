@@ -12,14 +12,31 @@ class Mslider extends CI_Model
 	
 	function slider_list()
 	{
-		//$this->db->where($filter);
-        //$this->db->order_by('pub_date', 'DESC');
 		$query = $this->db->get('slider');
 		$result = $query->result_array();  
 		return $result ? $result : false;
 	}
+    function add_slide($data)
+    {
+        $this->db->insert('slider', $data);
+        return $this->db->insert_id();
+    }
 
-	  
+    function delete_slide($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('slider');
+    }
+
+    function slide_exists($id)
+    {
+        $this->db->where('id', $id);
+        return $this->db->count_all_results('slider') > 0 ? true : false;
+    }
+
+
+
+
 	function article_info($id)
 	{
 		
@@ -40,11 +57,7 @@ class Mslider extends CI_Model
           $this->db->set('view', 'view + 1', false);
 		$this->db->update('articles');
 	}
-	function add_article($data)
-	{
-		$this->db->insert('articles', $data);
-        return $this->db->insert_id();
-	}
+
 	
 	function delete_article($id)
 	{

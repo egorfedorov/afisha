@@ -26,57 +26,74 @@ class Slider extends CI_Controller
         // Prepare view
         $this->data['action_title'] = 'Добавление новой статьи';
         $this->data['page'] = array('title_ru' => '', 'title_ua' => '', 'anons_ru' => '', 'anons_ua' => '', 'pub_date' => date('d-m-Y H:i'), 'text_ru' => '', 'text_ua' => '', 'video' => '','id' => '');
-        $this->data['body'] = 'admin/articles/edit_article';
+        $this->data['body'] = 'admin/slider/edit_slider';
         $this->load->view('admin/layout', $this->data);
     }
 
-	
+    function delete($id)
+    {
+        if ($this->mslider->slide_exists($id))
+        {
+            // Deletting
+            $this->mslider->delete_slide($id);
+            //  $this->mcomment->delete_all_coments($id);
+            $this->data['msg']['type'] = 'succeed';
+            $this->data['msg']['text'] = 'Статья успешно удалена.';
+        }
+        else
+        {
+            // Page not found
+            $this->data['msg']['type'] = 'error';
+            $this->data['msg']['text'] = 'Статья не найдена.';
+        }
+
+        // Redirecting
+        $this->index();
+    }
 	function submit()
 	{
+
 		// POST data
-		$main_block = $this->input->post('main_block');
-		$miniblock_1 = $this->input->post('miniblock_1');
-		$miniblock_2 = $this->input->post('miniblock_2');
-		$miniblock_3 = $this->input->post('miniblock_3');
-        $banner_deposit_link = $this->input->post('banner_deposit_link');
-        $banner_galery_link = $this->input->post('banner_galery_link');
-        // Save banners
-        $config['upload_path'] = './uploads/banners/';
+		$title = $this->input->post('title');
+		// Save banners
+        $config['upload_path'] = './uploads/slider/';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$this->load->library('upload', $config);
-        foreach($_FILES as $key => $value)
-        {
-            if( !empty($value['name']))
-            {
-                if ( !$this->upload->do_upload($key))
+
+                if ( !$this->upload->do_upload('file_upload'))
 		        {
 		        	$error = array('error' => $this->upload->display_errors());
 			        $this->data['msg']['type'] = 'error';
 			        $this->data['msg']['text'] = $error;
+                    print_r($this->data['msg']);die;
 		        }
 		        else
 		        {
 			        $data = array('upload_data' => $this->upload->data());
-                    $this->mconfig->set_value($key, 'uploads/banners/'.$data['upload_data']['file_name']);
+
+
+                    $config_res['image_library'] = 'gd2';
+                    $config_res['source_image']	= $data['upload_data']['full_path'];
+                    $config_res['new_image'] = $data['upload_data']['file_path'].'thumbs/'.$image_name;
+                    $config_res['maintain_ratio'] = TRUE;
+                    $config_res['width']	 = 130;
+                    $config_res['height']	= 74;
+
+                    $this->load->library('image_lib', $config_res);
+                    if ( ! $this->image_lib->resize())
+                    {
+                        echo $this->image_lib->display_errors();die;
+                    }
+
+
+                    $data = array(
+                        'path'=>'uploads/slider/'.$data['upload_data']['file_name'],
+                        'thumb' => '/uploads/slider/thoumbs/'.$image_name,
+                        'name' => $title
+                    );
+                    $this->mslider->add_slide($data);
 		        }
-            }
-        }
 
-        
-		
-		// Saving
-		if ($main_block) $this->mconfig->set_value('main_page_block', $main_block);
-		if ($miniblock_1) $this->mconfig->set_value('main_page_miniblock_1', $miniblock_1);
-		if ($miniblock_2) $this->mconfig->set_value('main_page_miniblock_2', $miniblock_2);
-		if ($miniblock_3) $this->mconfig->set_value('main_page_miniblock_3', $miniblock_3);
-        if ($banner_deposit_link) $this->mconfig->set_value('banner_deposit_link', $banner_deposit_link);
-        if ($banner_galery_link) $this->mconfig->set_value('banner_galery_link', $banner_galery_link);
-        
-
-		
-		// Message
-		$this->data['msg']['type'] = 'succeed';
-		$this->data['msg']['text'] = 'Изменения сохранены.';
 		
 		// Redirect
 		$this->index();

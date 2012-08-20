@@ -26,8 +26,8 @@
 	    <td class="td-3"><?=$slider['name']?></td>
 		<td class="td-3">
             <span class="data_actions iconsweet">
-                <a class="tip_north" original-title="Edit" href="<?=base_url()?>admin/articles/edit/<?=$slider['id']?>">C</a>
-                <a class="tip_north" original-title="Delete" href="#" onclick="if (confirm('Вы действительно хотите удалить эту статью?')) {window.location.href='<?=base_url()?>admin/articles/delete/<?=$article['id']?>';}">X</a>
+
+                <a class="tip_north" original-title="Delete" href="#" onclick="if (confirm('Вы действительно хотите удалить эту статью?')) {window.location.href='<?=base_url()?>admin/slider/delete/<?=$slider['id']?>';}">X</a>
 			</span>
 	    </td>
 	</tr>

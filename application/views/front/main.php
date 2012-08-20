@@ -154,27 +154,12 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
             <div class="ad-nav">
                 <div class="ad-thumbs">
                     <ul class="ad-thumb-list">
-                        <li>
-                            <a href="<?base_url()?>public/img/thumbs/slider_img1.jpg"><img src="<?base_url()?>public/img/thumbs/slider_img_thumbs1.jpg" alt="established fact that a reader will be distracted by the readable content of a page when looking." /></a>
-                        </li>
-                        <li>
-                            <a href="<?base_url()?>public/img/thumbs/slider_img2.jpg"><img src="<?base_url()?>public/img/thumbs/slider_img_thumbs2.jpg" alt="established fact that a reader will be distracted by the readable content of a page when looking." /></a>
-                        </li>
-                        <li>
-                            <a href="<?base_url()?>public/img/thumbs/slider_img3.jpg"><img src="<?base_url()?>public/img/thumbs/slider_img_thumbs3.jpg" alt="established fact that a reader will be distracted by the readable content of a page when looking." /></a>
-                        </li>
-                        <li>
-                            <a href="<?base_url()?>public/img/thumbs/slider_img4.jpg"><img src="<?base_url()?>public/img/thumbs/slider_img_thumbs4.jpg" alt="established fact that a reader will be distracted by the readable content of a page when looking." /></a>
-                        </li>
-                        <li>
-                            <a href="<?base_url()?>public/img/thumbs/slider_img5.jpg"><img src="<?base_url()?>public/img/thumbs/slider_img_thumbs5.jpg" alt="established fact that a reader will be distracted by the readable content of a page when looking." /></a>
-                        </li>
-                        <li>
-                            <a href="<?base_url()?>public/img/thumbs/slider_img6.jpg"><img src="<?base_url()?>public/img/thumbs/slider_img_thumbs6.jpg" alt="established fact that a reader will be distracted by the readable content of a page when looking." /></a>
-                        </li>
-                        <li>
-                            <a href="<?base_url()?>public/img/thumbs/slider_img7.jpg"><img src="<?base_url()?>public/img/thumbs/slider_img_thumbs7.jpg" alt="established fact that a reader will be distracted by the readable content of a page when looking." /></a>
-                        </li>
+                        <? foreach($images as $image):?>
+                            <li>
+                                <a href="<?=base_url().$image['path']?>"><img src="<?base_url()?>public/img/thumbs/slider_img_thumbs1.jpg" alt="<?=$image['name']?>" /></a>
+                            </li>
+                        <? endforeach;?>
+
                     </ul>
                 </div>
             </div>
@@ -184,7 +169,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
             <p>ElephantWeb! is a clean Premium HTML Theme suitable for <span>portfolio, company</span> and any kind of websites.</p>
             <p>This theme <span>provides all</span> the main functionality you will need to present your product.</p>
         </div>
-        <div id="latest-blogs">
+        <div id="latest-blogs" class="latest_block">
 
             <div class="link_block">
                 <div class="overlay">
@@ -194,9 +179,13 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                             <a class="icon-link" href="#" title="view portfolio"></a>
                         </a>
                         <div class="img-border">
-                            <a href="#"><img class="round_image" src="<?base_url()?>public/img/1.jpg" alt="pink light" /></a>
+                            <a href="#"><img class="round_image" src="<?=base_url()?>public/img/image11.jpg" alt="pink light" /></a>
                         </div>
-                    </figure></div>
+                    </figure>
+                </div>
+                <div class="image_title">
+                    Сьогодні
+                </div>
             </div>
             <div class="link_block">
                 <div class="overlay">
@@ -206,9 +195,13 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                             <a class="icon-link" href="#" title="view portfolio"></a>
                         </a>
                         <div class="img-border">
-                            <a href="#"><img class="round_image" src="<?base_url()?>public/img/1.jpg" alt="pink light" /></a>
+                            <a href="#"><img class="round_image" src="<?=base_url()?>public/img/image2.jpg" alt="pink light" /></a>
                         </div>
-                    </figure></div>
+                    </figure>
+                </div>
+                <div class="image_title">
+                    Цього тижня
+                </div>
             </div>
             <div class="link_block">
                 <div class="overlay">
@@ -218,9 +211,12 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                             <a class="icon-link" href="#" title="view portfolio"></a>
                         </a>
                         <div class="img-border">
-                            <a href="#"><img class="round_image" src="<?base_url()?>public/img/1.jpg" alt="pink light" /></a>
+                            <a href="#"><img class="round_image" src="<?=base_url()?>public/img/image3.jpg" alt="pink light" /></a>
                         </div>
                     </figure></div>
+                <div class="image_title">
+                    Протягом місяця
+                </div>
             </div>
 
 

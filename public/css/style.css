@@ -1452,8 +1452,22 @@ height: 36px !important;
 
 .link_block{
     width: 220px;
+    margin: 40px;
     float: left;
 }
+.image_title{
+    text-align: center;
+    color: #ADADAD;
+    font: 16px/24px 'Oswald',sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
 .round_image{
     width: 220px;
+}
+.latest_block{
+    text-align: center;
 }
