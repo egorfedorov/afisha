@@ -64,7 +64,7 @@ class Events extends CI_Controller
         $article['id_owner'] = $this->input->post('owner_id');
         $article['date'] = substr($this->input->post('date'),0,10);
         $article['time'] = $this->input->post('time');
-		
+		$article['realrime'] =  $article['date'];
 
 		//$article['pub_date'] = date('Y-m-d H:i:s', strtotime($this->input->post('pub_date')));
 
