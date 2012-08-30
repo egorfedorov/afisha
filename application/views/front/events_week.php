@@ -9,7 +9,7 @@
                         <? if($categories): ?>
                         <? foreach($categories as $alias=>$cat):?>
                             <li class="<?=$alias?>"><a href="#" title="<?=$alias?>"><?=$cat?></a></li>
-                            <? endforeach;?>
+                        <? endforeach;?>
                         <? endif; ?>
 
                     </ul>
@@ -25,16 +25,16 @@
     <ul id="items" class="portfolio two-columns group">
         <? if($events): ?>
         <? foreach($events as $event):?>
-            <li data-id="id-2" data-type="<?=$event['alias']?>" class="portfolio-data eight columns2 omega">
-                <div class="overlay">
-                    <figure>
-                        <img class="round_image2" src="<?=$event['main_img']?>" alt="pink light" />
-                    </figure>
-                    <div class="title_filter"><a href=""> <?=$event['title']?></a></div>
-                    <p>Adipiscing ut tortor aliquam sit ut,</p>
-                </div>
-            </li>
-            <? endforeach;?>
+        <li data-id="id-2" data-type="<?=$event['alias']?>" class="portfolio-data eight columns2 omega">
+            <div class="overlay">
+                <figure>
+                    <img class="round_image2" src="<?=$event['main_img']?>" alt="pink light" />
+                </figure>
+                <div class="title_filter"><a href=""> <?=$event['title']?></a></div>
+                <p>Adipiscing ut tortor aliquam sit ut,</p>
+            </div>
+        </li>
+        <? endforeach;?>
         <? endif; ?>
     </ul>
 </div>

@@ -23,9 +23,9 @@ class Mcategory extends CI_Model
 		$result = $query->result_array();
 		return $result ? $result : false;
 	}
-    function add_event($data)
+    function add_category($data)
     {
-        $this->db->insert('events', $data);
+        $this->db->insert('category', $data);
     }
 
 	function event_info($id)

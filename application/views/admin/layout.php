@@ -101,6 +101,7 @@
     <li><a href="<?=base_url()?>admin/articles"><span class="iconsweet">}</span>Список статей блога</a></li>
     <li><a href="<?=base_url()?>admin/promo"><span class="iconsweet">R</span>Акции</a></li>
     <li><a href="<?=base_url()?>admin/slider"><span class="iconsweet">S</span>Слайдер</a></li>
+    <li><a href="<?=base_url()?>admin/categories/add"><span class="iconsweet">S</span>Категории</a></li>
 </ul>
 </nav>
 <!--Content Wrap-->

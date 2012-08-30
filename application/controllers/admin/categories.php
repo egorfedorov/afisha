@@ -1,6 +1,6 @@
 <?php
 
-class Events extends CI_Controller
+class Categories extends CI_Controller
 {
 	private $data;
 
@@ -8,107 +8,80 @@ class Events extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->helper('http_auth');
-		$this->load->model(array('mevents', 'mowners'));
-		//$this->load->model('mcomment');
-		$this->data['menu_section'] = 'events';
+		$this->load->model(array('mcategory', 'mimages'));
+		$this->data['menu_section'] = 'categories';
 		$this->data['msg'] = false;	
 	}
 	
 	function index()
 	{		
-		$this->events_list();
+		$this->articles_list();
 	}
 	
-	function events_list()
+	function articles_list()
 	{
 		// Get page
-		$this->data['events'] = $this->mevents->events_list_admin();
-		//print_r($this->data['events']);die;
+		$this->data['articles'] = $this->marticles->articles_list();
+		
 		// Prepare view
-		$this->data['body'] = 'admin/events/events_list';
+		$this->data['body'] = 'admin/articles/articles_list';
 		$this->load->view('admin/layout', $this->data);
 	}
 	
 	function add()
 	{
 		// Prepare view
-		$this->data['action_title'] = 'Добавление нового события';
-		$this->data['event'] = array('title' => '', 'link' => '', 'description' => '', 'time' => '', 'main_img' => '', 'date' => date('m-d-Y'), 'text_ru' => '', 'text_ua' => '', 'video' => '','id' => '');
-        $this->data['owners'] = $this->mowners->owners_list();
-
-        $this->data['body'] = 'admin/events/edit_event';
+		$this->data['action_title'] = 'Добавление новой Категории';
+		$this->data['page'] = array('title_ru' => '', 'title_ua' => '', 'anons_ru' => '', 'anons_ua' => '', 'pub_date' => date('d-m-Y H:i'), 'text_ru' => '', 'text_ua' => '', 'video' => '','id' => '');
+		$this->data['body'] = 'admin/categories/edit_category';
 		$this->load->view('admin/layout', $this->data);
 	}
 	
 	function edit($id)
 	{
 		// Get page
-		$this->data['event'] = $this->mevents->event_info($id);
-
-        $this->data['owners'] = $this->mowners->owners_list();
+		$this->data['page'] = $this->marticles->article_info($id);
+		$this->data['page']['pub_date'] = date('d-m-Y H:i', strtotime($this->data['page']['pub_date']));
+        $this->data['article_images'] = $this->mimages->event_img($this->data['page']['id']);
+       //print_r($this->data['article_images']);die;
 		// Prepare view
-		$this->data['action_title'] = 'Редактирование coбытия';
-		$this->data['body'] = 'admin/events/edit_event';
+		$this->data['action_title'] = 'Редактирование статьи';
+		$this->data['body'] = 'admin/articles/edit_article';
 		$this->load->view('admin/layout', $this->data);
 	}
 	
 	function submit()
 	{
 		// POST data
+        //print_r($_POST);
+        //print_r($_FILES);
+        //die;
 		$id = $this->input->post('id');		
-		$article['title'] = $this->input->post('title');
-		$article['description'] = $this->input->post('description');
-        $article['link'] = $this->input->post('link');
-		$article['category'] = $this->input->post('category');
-        $article['every_day'] = $this->input->post('every_day');
-        $article['id_owner'] = $this->input->post('owner_id');
-        $article['date'] = substr($this->input->post('date'),0,10);
-        $article['time'] = $this->input->post('time');
-        $realtime = explode("-", $article['date']);
-		$article['realtime'] = strtotime($realtime[2].'-'.$realtime[0].'-'.$realtime[1]);
+		$article['category_name'] = $this->input->post('category_name');
 
-		//$article['pub_date'] = date('Y-m-d H:i:s', strtotime($this->input->post('pub_date')));
+		$article['alias'] = $this->input->post('alias');
 
 		// Validation
 		// ...
-       /// print_r($_FILES);die;
-		if($_FILES['file_upload']['size'] != 0){
-        $config['upload_path'] = './uploads/';
-		$config['allowed_types'] = 'gif|jpg|png';
-		$this->load->library('upload', $config);
-        
-		if ( !$this->upload->do_upload('file_upload'))
-		{
-			$error = array('error' => $this->upload->display_errors());
-			$this->data['msg']['type'] = 'error';
-			$this->data['msg']['text'] = $error;
-            print_r($error);die;
-
-		}
-		else
-		{
-			$data = array('upload_data' => $this->upload->data());
-            $article['main_img'] = base_url().'uploads/'.$data['upload_data']['file_name'];
-		}
-
-        }
 		// Inserting/Updating
 		if ($id)
 		{
-			$this->mevents->update_event($id, $article);
+			$this->marticles->update_article($id, $article);
 			$this->data['msg']['type'] = 'succeed';
-			$this->data['msg']['text'] = 'События "'.$article['title'].'" сохранена.';
+			$this->data['msg']['text'] = 'Статья "'.$article['title_ru'].'" сохранена.';
+            $article_id = $id;
 		}
 		else
 		{
-            //print_r($article);die;
-			$this->mevents->add_event($article);
+			$article_id = $this->mcategory->add_category($article);
 			$this->data['msg']['type'] = 'succeed';
-			$this->data['msg']['text'] = 'События "'.$article['title'].'" добавлена.';
+			$this->data['msg']['text'] = 'Категория "'.$article['category_name'].'" добавлена.';
 		}
-		
+
+        /// print_r($_FILES);die;
+
 		// Redirecting
-		$this->events_list();
+		$this->add();
 	}
 	
 	function delete($id)
@@ -117,7 +90,7 @@ class Events extends CI_Controller
 		{
 			// Deletting
 			$this->marticles->delete_article($id);
-			$this->mcomment->delete_all_coments($id);
+			//  $this->mcomment->delete_all_coments($id);
 			$this->data['msg']['type'] = 'succeed';
 			$this->data['msg']['text'] = 'Статья успешно удалена.';						
 		}

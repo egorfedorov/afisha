@@ -31,10 +31,29 @@ class Events extends ControllerBase
         $this->data['content'] = 'front/events_list';
         $this->load->view('front/layout', $this->data);
     }
+    function week()
+    {
+        $this->data['events'] = $this->mevents->events_week();
+
+        $cat = array();
+        foreach($this->data['events'] as $event){
+            if(!isset($cat[$event['alias']]))$cat[$event['alias']] = $event['category_name'];
+        }
+
+        $this->data['categories'] = $cat;
+       // print_r($this->data['categories']);die;
+        $this->data['content'] = 'front/events_week';
+        $this->load->view('front/layout', $this->data);
+    }
     function month()
     {
         $this->data['events'] = $this->mevents->events_month();
-        //print_r($this->data['events']);die;
+        $cat = array();
+        foreach($this->data['events'] as $event){
+            if(!isset($cat[$event['alias']]))$cat[$event['alias']] = $event['category_name'];
+        }
+
+        $this->data['categories'] = $cat;
         $this->data['content'] = 'front/events_month';
         $this->load->view('front/layout', $this->data);
     }

@@ -1471,3 +1471,53 @@ height: 36px !important;
 .latest_block{
     text-align: center;
 }
+.filter li:after {
+    content: " ";
+}
+
+#portfolio-filter ul li {
+    display: inline;
+}
+
+.filter li {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-right: 1px dotted #AAAAAA;
+    padding: 0 10px;
+}
+
+li {
+    line-height: 1.667em;
+    margin-bottom: 0;
+}
+.container .four.columns2 {
+    width: 220px;
+}
+
+.portfolio li.portfolio-data {
+    border-radius: 2px 2px 2px 2px;
+    float: left;
+    margin-bottom: 20px;
+    width: 264px;
+}
+
+.column.alpha, .columns2.alpha {
+    margin-left: 0;
+}
+.round_image2{
+    width: 170px;
+}
+.column, .columns2 {
+    display: inline;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.filters {
+    text-align:center;
+    display: block;
+}
+.title_filter a { font: bold 11px/14px 'Open Sans', sans-serif; color:#6b6b6b;}
+.title_filter a:hover { color:#d42d17;}
+.container-frame{
+    margin-top: 20px;
+}
