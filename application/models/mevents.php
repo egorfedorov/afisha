@@ -54,7 +54,7 @@ class Mevents extends CI_Model
     }
     function events_list_admin()
     {
-        $this->db->order_by('id', 'ASC');
+        $this->db->order_by('id', 'DESC');
         //$this->db->select('events.id as event_id, events.title, events.category, owner.id as owner_id');
        // $this->db->join('owner', 'owner.id = events.id_owner');
         //$this->db->join('category', 'category.id = events.category');

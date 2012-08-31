@@ -56,8 +56,10 @@
                     <label class="label notice" for="anons_ru">Категория </label>
                     <div class="form_input">
                     <select name="category">
-                        <option value="1" <? if($event['category'] == '1')echo 'selected'?>>Кино</option>
-                        <option value="2" <? if($event['category'] == '2')echo 'selected'?>>Концетр</option>
+                        <? foreach($categories as $cat):?>
+                                <option value="<?=$cat['id']?>" <? if($event['category'] == $cat['id'])echo 'selected'?>><?=$cat['category_name']?></option>
+                        <? endforeach;?>
+                 
                     </select>
                     </div>
                 </li>

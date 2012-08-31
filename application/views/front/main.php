@@ -174,12 +174,12 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
             <div class="link_block">
                 <div class="overlay">
                     <figure>
-                        <a href="portfolio-single.html" class="overlay-mask">
+                        <a href="<?=base_url()?>events/today" class="overlay-mask">
                             <a class="icon-view" href="img/content/home/blog/1.jpg" rel="prettyPhoto"></a>
-                            <a class="icon-link" href="#" title="view portfolio"></a>
+                            <a class="icon-link" href="<?=base_url()?>events/today" title="view portfolio"></a>
                         </a>
                         <div class="img-border">
-                            <a href="#"><img class="round_image" src="<?=base_url()?>public/img/image11.jpg" alt="pink light" /></a>
+                            <a href="<?=base_url()?>events/today"><img class="round_image" src="<?=base_url()?>public/img/image11.jpg" alt="pink light" /></a>
                         </div>
                     </figure>
                 </div>
@@ -190,12 +190,12 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
             <div class="link_block">
                 <div class="overlay">
                     <figure>
-                        <a href="portfolio-single.html" class="overlay-mask">
+                        <a href="<?=base_url()?>events/week" class="overlay-mask">
                             <a class="icon-view" href="img/content/home/blog/1.jpg" rel="prettyPhoto"></a>
-                            <a class="icon-link" href="#" title="view portfolio"></a>
+                            <a class="icon-link" href="<?=base_url()?>events/week" title="view portfolio"></a>
                         </a>
                         <div class="img-border">
-                            <a href="#"><img class="round_image" src="<?=base_url()?>public/img/image2.jpg" alt="pink light" /></a>
+                            <a href="<?=base_url()?>events/week"><img class="round_image" src="<?=base_url()?>public/img/image2.jpg" alt="pink light" /></a>
                         </div>
                     </figure>
                 </div>
@@ -206,12 +206,12 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
             <div class="link_block">
                 <div class="overlay">
                     <figure>
-                        <a href="portfolio-single.html" class="overlay-mask">
+                        <a href="<?=base_url()?>events/month" class="overlay-mask">
                             <a class="icon-view" href="img/content/home/blog/1.jpg" rel="prettyPhoto"></a>
-                            <a class="icon-link" href="#" title="view portfolio"></a>
+                            <a class="icon-link" href="<?=base_url()?>events/month" title="view portfolio"></a>
                         </a>
                         <div class="img-border">
-                            <a href="#"><img class="round_image" src="<?=base_url()?>public/img/image3.jpg" alt="pink light" /></a>
+                            <a href="<?=base_url()?>events/month"><img class="round_image" src="<?=base_url()?>public/img/image3.jpg" alt="pink light" /></a>
                         </div>
                     </figure></div>
                 <div class="image_title">

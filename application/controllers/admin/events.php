@@ -8,7 +8,7 @@ class Events extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->helper('http_auth');
-		$this->load->model(array('mevents', 'mowners'));
+		$this->load->model(array('mevents', 'mowners', 'mcategory'));
 		//$this->load->model('mcomment');
 		$this->data['menu_section'] = 'events';
 		$this->data['msg'] = false;	
@@ -35,7 +35,7 @@ class Events extends CI_Controller
 		$this->data['action_title'] = 'Добавление нового события';
 		$this->data['event'] = array('title' => '', 'link' => '', 'description' => '', 'time' => '', 'main_img' => '', 'date' => date('m-d-Y'), 'text_ru' => '', 'text_ua' => '', 'video' => '','id' => '');
         $this->data['owners'] = $this->mowners->owners_list();
-
+        $this->data['categories'] = $this->mcategory->categories_list();
         $this->data['body'] = 'admin/events/edit_event';
 		$this->load->view('admin/layout', $this->data);
 	}
@@ -44,7 +44,7 @@ class Events extends CI_Controller
 	{
 		// Get page
 		$this->data['event'] = $this->mevents->event_info($id);
-
+        $this->data['categories'] = $this->mcategory->categories_list();
         $this->data['owners'] = $this->mowners->owners_list();
 		// Prepare view
 		$this->data['action_title'] = 'Редактирование coбытия';
