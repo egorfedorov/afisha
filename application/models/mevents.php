@@ -15,7 +15,8 @@ class Mevents extends CI_Model
 	    if ($fields)
 		{
 			$this->db->select(implode(',', $fields));
-		}				
+		}
+        $this->db->select('events.*', 'owner.name','category.category_name,category.alias');
 		if ($filter) $this->db->where($filter);
         if ($order_cat) $this->db->order_by($order_cat, $order_by);
         $where = "(every_day ='1' OR (every_day='0' AND date='".date('m-d-Y')."'))";
@@ -26,7 +27,8 @@ class Mevents extends CI_Model
 		$query = $this->db->get('events');
 		$result = $query->result_array();
         //echo  $this->db->last_query();die;
-		return $result ? $result : false;
+		//print_r($result);die;
+        return $result ? $result : false;
 	}
     function events_month()
     {
@@ -55,9 +57,6 @@ class Mevents extends CI_Model
     function events_list_admin()
     {
         $this->db->order_by('id', 'DESC');
-        //$this->db->select('events.id as event_id, events.title, events.category, owner.id as owner_id');
-       // $this->db->join('owner', 'owner.id = events.id_owner');
-        //$this->db->join('category', 'category.id = events.category');
         $query = $this->db->get('events');
         $result = $query->result_array();
         //echo  $this->db->last_query();die;
@@ -86,44 +85,11 @@ class Mevents extends CI_Model
 		$result = $query->result_array();
 		return $result ? $result : false;
 	}
+    function delete_events($data=array()){
+        $this->db->delete('events', $data);
+    }
 
-  /* ------------------ ----------------- -------------- -  -------------*/
-	function update_article($id, $data)
-	{
-		$this->db->where('id', $id);
-		$this->db->update('articles', $data);
-	}
-	function update_view($id)
-	{
-		$this->db->where('id', $id);
-          $this->db->set('view', 'view + 1', false);
-		$this->db->update('articles');
-	}
-	function add_article($data)
-	{
-		$this->db->insert('articles', $data);
-	}
-	
-	function delete_article($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete('articles');
-	}
-	
-	function article_exists($id)
-	{
-		$this->db->where('id', $id);
-		return $this->db->count_all_results('articles') > 0 ? true : false;
-	}
-	
-	function change_status($id)
-	{
-		$article = $this->article_info($id);
-		$new_status = $article['status'] == '0' ? '1' : '0';		
-		$this->db->where('id', $id);
-		$this->db->set('status', $new_status);
-		$this->db->update('articles');
-	}
+
 }
 
 // End of file

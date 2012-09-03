@@ -20,7 +20,7 @@ class Marticles extends CI_Model
 	}
     function articles_list_last($limit)
     {
-        $this->db->select('articles.id, articles.title_ru,images.path');
+        $this->db->select('articles.id, articles.pub_date, articles.title_ru,images.path');
         $this->db->join('images', 'images.item_id = articles.id');
         $this->db->order_by('pub_date', 'DESC');
         $this->db->group_by("articles.title_ru");

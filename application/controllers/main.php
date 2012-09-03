@@ -11,7 +11,8 @@ class Main extends ControllerBase  {
 
 	public function index()
 	{
-
+        $this->data['last_news'] =  $this->marticles->articles_list_last(4);
+       // print_r($this->data['last_news']);die;
         $this->data['images'] = $this->mslider->slider_list();
         $this->data['content'] = 'front/main';
         $this->load->view('front/main', $this->data);

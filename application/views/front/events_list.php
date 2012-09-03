@@ -1,5 +1,4 @@
 <div class="block_cont_left">
-
 		<?php if ($events) : ?>
 		<?php foreach ($events as $event) : ?>
     <div class="block_blog">

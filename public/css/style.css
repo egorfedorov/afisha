@@ -53,7 +53,7 @@ h2 span,
 h3 span,
 h4 span,
 h5 span { color:#9a9a9a;}
-p { font: normal 12px/17px Arial, Helvetica, sans-serif; color:#8e8e8e; text-align:justify;}
+p { font: normal 16px/21px Arial, Helvetica, sans-serif; color:#8e8e8e; text-align:justify;}
 a { font: normal 12px/17px Arial, Helvetica, sans-serif; color:#d42d17; text-decoration:none;}
 
 .quote { background:#fcfcfc; border:1px solid #fafafa; padding:8px 15px 9px; font: italic 11px/17px 'Droid Serif', serif; text-align:left; color:#b0b0b0}
@@ -1520,4 +1520,19 @@ li {
 .title_filter a:hover { color:#d42d17;}
 .container-frame{
     margin-top: 20px;
+}
+.main_news_img{
+    width: 196px;
+    height: 123px;
+    overflow: hidden;
+}
+.main_news_img img{
+    width: 196px;
+}
+.main_news_title{
+    color: #ADADAD;
+    font: bold 16px/24px 'Oswald',sans-serif;
+    padding:20px 0;
+    text-align: left;
+    text-transform: uppercase;
 }

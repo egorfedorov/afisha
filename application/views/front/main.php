@@ -175,7 +175,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                 <div class="overlay">
                     <figure>
                         <a href="<?=base_url()?>events/today" class="overlay-mask">
-                            <a class="icon-view" href="img/content/home/blog/1.jpg" rel="prettyPhoto"></a>
+                            <a class="icon-view" href="<?=base_url()?>events/today" rel="prettyPhoto"></a>
                             <a class="icon-link" href="<?=base_url()?>events/today" title="view portfolio"></a>
                         </a>
                         <div class="img-border">
@@ -191,7 +191,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                 <div class="overlay">
                     <figure>
                         <a href="<?=base_url()?>events/week" class="overlay-mask">
-                            <a class="icon-view" href="img/content/home/blog/1.jpg" rel="prettyPhoto"></a>
+                            <a class="icon-view" href="<?=base_url()?>events/week" rel="prettyPhoto"></a>
                             <a class="icon-link" href="<?=base_url()?>events/week" title="view portfolio"></a>
                         </a>
                         <div class="img-border">
@@ -207,7 +207,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                 <div class="overlay">
                     <figure>
                         <a href="<?=base_url()?>events/month" class="overlay-mask">
-                            <a class="icon-view" href="img/content/home/blog/1.jpg" rel="prettyPhoto"></a>
+                            <a class="icon-view" href="<?=base_url()?>events/month" rel="prettyPhoto"></a>
                             <a class="icon-link" href="<?=base_url()?>events/month" title="view portfolio"></a>
                         </a>
                         <div class="img-border">
@@ -223,6 +223,22 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
 
 
     </div>
+        <div class="line"></div>
+        <div class="main_news_title">Останні новини Черкасс</div>
+        <div class="columns">
+            <? foreach($last_news as $news):?>
+            <div class="column">
+                <div class="main_news_img">
+                    <img src="<?base_url()?><?=$news['path']?>" title="" alt=""  />
+                </div>
+                <div class="text">
+                    <p><a href="<?base_url()?>blog/get_article/<?=$news['id']?>"><?=$news['title_ru']?></a></p>
+                    <p class="date"><?=$news['pub_date']?> </p>
+                </div>
+            </div>
+            <? endforeach; ?>
+
+        </div>
 </div>
 <div id="footer">
     <div class="inner">

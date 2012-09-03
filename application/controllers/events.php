@@ -28,6 +28,7 @@ class Events extends ControllerBase
     function today()
     {
         $this->data['events'] = $this->mevents->events_list(null, null,'time', 'ASC',date("H:i:s"));
+       // print_r($this->data['events']);die;
         $this->data['content'] = 'front/events_list';
         $this->load->view('front/layout', $this->data);
     }
@@ -36,10 +37,11 @@ class Events extends ControllerBase
         $this->data['events'] = $this->mevents->events_week();
 
         $cat = array();
+        if($this->data['events']){
         foreach($this->data['events'] as $event){
             if(!isset($cat[$event['alias']]))$cat[$event['alias']] = $event['category_name'];
         }
-
+        }
         $this->data['categories'] = $cat;
        // print_r($this->data['categories']);die;
         $this->data['content'] = 'front/events_week';
@@ -49,10 +51,11 @@ class Events extends ControllerBase
     {
         $this->data['events'] = $this->mevents->events_month();
         $cat = array();
+        if($this->data['events']){
         foreach($this->data['events'] as $event){
             if(!isset($cat[$event['alias']]))$cat[$event['alias']] = $event['category_name'];
         }
-
+        }
         $this->data['categories'] = $cat;
         $this->data['content'] = 'front/events_month';
         $this->load->view('front/layout', $this->data);
@@ -78,7 +81,8 @@ class Events extends ControllerBase
     }
     function import()
     {
-
+        $del_data = array('category' => 1);
+        $this->mevents->delete_events($del_data);
         //Get HTML from kinoteatr.ck.ua
         $html =$this->curl_file_get_contents('http://www.kinoteatr.ck.ua/today');
         $lines = explode('infobox', $html);
