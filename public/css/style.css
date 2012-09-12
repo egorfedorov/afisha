@@ -1497,13 +1497,20 @@ li {
     border-radius: 2px 2px 2px 2px;
     float: left;
     margin-bottom: 20px;
-    width: 264px;
+    width: 195px;
 }
 
 .column.alpha, .columns2.alpha {
     margin-left: 0;
 }
-.round_image2{
+.cut_image{
+    height: 100px;
+    overflow: hidden;
+}
+.title_filter{
+    height: 30px;
+}
+.image_month{
     width: 170px;
 }
 .column, .columns2 {

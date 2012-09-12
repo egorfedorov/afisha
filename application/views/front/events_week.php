@@ -26,13 +26,11 @@
         <? if($events): ?>
         <? foreach($events as $event):?>
         <li data-id="id-2" data-type="<?=$event['alias']?>" class="portfolio-data eight columns2 omega">
-            <div class="overlay">
-                <figure>
-                    <img class="round_image2" src="<?=$event['main_img']?>" alt="pink light" />
-                </figure>
-                <div class="title_filter"><a href=""> <?=$event['title']?></a></div>
-                <p>Adipiscing ut tortor aliquam sit ut,</p>
+            <div class="cut_image">
+                <img class="image_month" src="<?=$event['main_img']?>" alt="pink light" />
             </div>
+            <div class="title_filter"><a href=""> <?=$event['title']?></a></div>
+            <p>Adipiscing ut tortor aliquam sit ut,</p>
         </li>
         <? endforeach;?>
         <? endif; ?>
