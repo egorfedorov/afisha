@@ -6,8 +6,10 @@ class Events extends ControllerBase
 	{
 		parent::__construct();
         date_default_timezone_set('Europe/Kiev');
-		$this->load->model(array('mevents', 'mmenu', 'mimages', 'marticles'));
+		$this->load->model(array('mevents', 'mmenu', 'mimages', 'marticles', 'mcategory'));
         $this->data['last_news'] =  $this->marticles->articles_list_last(5);
+        $this->data['cat_left'] = $this->mcategory->categories_list();
+
 	}
     function test()
     {
@@ -50,9 +52,11 @@ class Events extends ControllerBase
     function month()
     {
         $this->data['events'] = $this->mevents->events_month();
+
         $cat = array();
         if($this->data['events']){
         foreach($this->data['events'] as $event){
+
             if(!isset($cat[$event['alias']]))$cat[$event['alias']] = $event['category_name'];
         }
         }

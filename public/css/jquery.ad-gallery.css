@@ -87,13 +87,14 @@
         background: url(../images/thumbs_slider_bg.png);
 		font: normal 12px/16px 'Oswald', sans-serif;
 		text-transform: uppercase;
-        color: #4f4f4f;
+        color: #fff;
 		border-left: 5px solid #ef4e39;
 		-webkit-border-radius: 0 3px 3px 0;
 		-moz-border-radius: 0 3px 3px 0;
 		border-radius: 0 3px 3px 0;
 		behavior: url(js/PIE.html);
 		display: none;
+          font-weight: bold;
 	  }
         .ad-gallery .ad-image-wrapper .ad-image .ad-image-description .ad-description-title {
           display: block;

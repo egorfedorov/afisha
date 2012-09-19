@@ -5,8 +5,9 @@ class Blog extends ControllerBase
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model(array('marticles', 'mmenu', 'mimages'));
+		$this->load->model(array('marticles', 'mmenu', 'mimages', 'mcategory'));
         $this->data['last_news'] =  $this->marticles->articles_list_last(5);
+        $this->data['cat_left'] = $this->mcategory->categories_list();
 	}		
 	
 	function index()

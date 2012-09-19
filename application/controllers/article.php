@@ -5,7 +5,8 @@ class Article extends ControllerBase
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model(array('marticles', 'mmenu'));		
+		$this->load->model(array('marticles', 'mmenu', 'mcategory'));
+        $this->data['cat_left'] = $this->mcategory->categories_list();
 	}		
 	
 	function index()

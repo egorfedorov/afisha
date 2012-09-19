@@ -5,8 +5,9 @@ class Contact extends ControllerBase
 	function __construct()
 	{
 		parent::__construct();
-        $this->load->model(array('mevents', 'mmenu', 'mimages', 'marticles'));
+        $this->load->model(array('mevents', 'mmenu', 'mimages', 'marticles', 'mcategory'));
         $this->data['last_news'] =  $this->marticles->articles_list_last(5);
+        $this->data['cat_left'] = $this->mcategory->categories_list();
 	}		
 	
 	function index()

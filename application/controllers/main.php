@@ -5,7 +5,8 @@ class Main extends ControllerBase  {
     function __construct()
     {
         parent::__construct();
-        $this->load->model(array('mconfig', 'mpages', 'mslider', 'marticles'));
+        $this->load->model(array('mconfig', 'mpages', 'mslider', 'marticles', 'mcategory'));
+        $this->data['cat_left'] = $this->mcategory->categories_list();
         $this->data['menu_id'] = 0;
     }
 

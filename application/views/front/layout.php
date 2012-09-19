@@ -72,7 +72,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
         <div class="line"></div>
         <div class="block_mid">
             <div id="logo">
-                <a href="<?=base_url()?>"><img src="<?base_url()?>public/img/logo.jpg" alt="ElephantWeb" title="ElephantWeb" /></a>
+                <a href="<?=base_url()?>"><img src="<?=base_url()?>public/img/logo.jpg" alt="ElephantWeb" title="ElephantWeb" /></a>
             </div>
             <div id="menu">
                 <ul>
@@ -171,14 +171,15 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
         </form>
     </div-->
     <div class="line"></div>
-    <div>
-        <a href="<?=base_url()?>events/add_event" class="button medium white">Добавить событие</a>
-    </div>
+
     <div class="line"></div>
     <div class="block_blog_category">
         <h4>категории</h4>
         <ul class="list2">
-            <li><a href="<?=base_url()?>/events/category/cinema">Кино</a> </li>
+            <? foreach($cat_left as $item):?>
+            <li><a href="<?=base_url()?>/events/category/<?=$item['alias']?>"><?=$item['category_name']?></a> </li>
+            <? endforeach;?>
+
             <!--li><a href="#">Photography</a> (2)</li>
             <li><a href="#">Illustration</a> (4)</li>
             <li><a href="#">Branding Design</a> (3)</li-->
@@ -188,9 +189,9 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
         <h4>Последние новости</h4>
         <? foreach($last_news as $news):?>
         <div class="post">
-            <div class="img"><a href="<?base_url()?>blog/get_article/<?=$news['id']?>"><img style="width: 40px;" src="<?base_url()?><?=$news['path']?>" alt="" title="" /></a></div>
+            <div class="img"><a href="<?=base_url()?>blog/get_article/<?=$news['id']?>"><img style="width: 40px;" src="<?=base_url()?><?=$news['path']?>" alt="" title="" /></a></div>
             <div class="text">
-                <p><a href="<?base_url()?>blog/get_article/<?=$news['id']?>"><?=$news['title_ru']?></a></p>
+                <p><a href="<?=base_url()?>blog/get_article/<?=$news['id']?>"><?=$news['title_ru']?></a></p>
                 <p class="date">October 5, 2011 </p>
             </div>
         </div>
@@ -203,7 +204,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
         <p>Фото с мероприятия в Черкассах</p>
         <div class="latest_img see_big2">
             <div>
-                <a href="<?base_url()?>public/img/big_img9.jpg" rel="prettyPhoto[gallery1]"><img src="<?base_url()?>public/img/img_latest.jpg" title="" alt="" />
+                <a href="<?=base_url()?>public/img/big_img9.jpg" rel="prettyPhoto[gallery1]"><img src="<?=base_url()?>public/img/img_latest.jpg" title="" alt="" />
                     <span class="icon"></span></a>
             </div>
         </div>
@@ -231,9 +232,9 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
         <? foreach($last_news as $news):?>
         <? if($i<2):?>
         <div class="post">
-            <div class="img"><a href="<?base_url()?>blog/get_article/<?=$news['id']?>"><img style="width: 40px;" src="<?base_url()?><?=$news['path']?>" alt="" title="" /></a></div>
+            <div class="img"><a href="<?=base_url()?>blog/get_article/<?=$news['id']?>"><img style="width: 40px;" src="<?=base_url()?><?=$news['path']?>" alt="" title="" /></a></div>
             <div class="text">
-                <p><a href="<?base_url()?>blog/get_article/<?=$news['id']?>"><?=$news['title_ru']?></a></p>
+                <p><a href="<?=base_url()?>blog/get_article/<?=$news['id']?>"><?=$news['title_ru']?></a></p>
                 <p class="date">October 5, 2011 </p>
             </div>
         </div>
@@ -276,7 +277,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
         <div class="line"></div>
         <div class="block_footer">
             <div id="logo_footer">
-                <a href="index.html"><img src="<?base_url()?>public/img/logo_f.jpg" alt="ElephantWeb" title="ElephantWeb" /></a>
+                <a href="index.html"><img src="<?=base_url()?>public/img/logo_f.jpg" alt="ElephantWeb" title="ElephantWeb" /></a>
             </div>
             <div class="block_copyrights">
                 <p>The ElephantWeb, Los Angeles</p>

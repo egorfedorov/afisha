@@ -759,13 +759,13 @@ body.stretched #wrapper { width:100%; min-width:982px; background: #FFFFFF url(.
 	#content .block_recent_posts .post .text p a:hover { color:#d42d17;}
 	#content .block_recent_posts .post .text .date { font: italic 10px/18px 'Droid Serif', serif; color:#c3c3c3; text-transform: none; padding-top:2px;}
 	#content .block_recent_posts .post .line2 { margin:12px 0 15px;}
-	
-	#content .block_last_work { margin:22px 0 13px;}
-	#content .block_last_work h4 { padding-bottom:12px;}
-	#content .block_last_work .latest_img { width:203px; height: 115px; background:url(../img/img_border_213_125.jpg) no-repeat; padding:5px; margin-top:15px;}
-	#content .block_last_work .latest_img>div { width:100%; height:100%; position:relative;}
-	#content .block_last_work .latest_img a { display:block; width:100%; height:100%; background:url(../img/shadow_for_img2.png);}
-	#content .block_last_work .latest_img img {
+
+.block_last_work, #content .block_last_work { margin:22px 0 13px;}
+.block_last_work h4, #content .block_last_work h4 { padding-bottom:12px;}
+ .latest_img,	#content .block_last_work .latest_img { width:203px; height: 115px; background:url(../img/img_border_213_125.jpg) no-repeat; padding:5px; margin-top:15px;}
+.latest_img>div,	#content .block_last_work .latest_img>div { width:100%; height:100%; position:relative;}
+ .latest_img a,	#content .block_last_work .latest_img a { display:block; width:100%; height:100%; background:url(../img/shadow_for_img2.png);}
+  .latest_img img,	#content .block_last_work .latest_img img {
 		filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
 		-moz-opacity: 0;
 		-khtml-opacity: 0;
@@ -1542,4 +1542,13 @@ li {
     padding:20px 0;
     text-align: left;
     text-transform: uppercase;
+}
+.art_img img{
+width: 670px;
+
+}
+.art_img{
+    width: 670px;
+    height: 250px;
+    overflow: hidden;
 }

@@ -5,7 +5,8 @@ class Page extends ControllerBase
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model(array('mpages', 'mmenu', 'marticles'));
+		$this->load->model(array('mpages', 'mmenu', 'marticles', 'mcategory'));
+        $this->data['cat_left'] = $this->mcategory->categories_list();
         $this->data['last_news'] =  $this->marticles->articles_list_last(5);
         $this->data['menu_id'] = '';
 	}		

@@ -5,7 +5,8 @@ class Content extends ControllerBase
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model(array('mcontent', 'mmenu'));
+		$this->load->model(array('mcontent', 'mmenu', 'mcategory'));
+        $this->data['cat_left'] = $this->mcategory->categories_list();
 	}		
 	
 	function index()

@@ -156,7 +156,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                     <ul class="ad-thumb-list">
                         <? foreach($images as $image):?>
                             <li>
-                                <a href="<?=base_url().$image['path']?>"><img src="<?base_url()?>public/img/thumbs/slider_img_thumbs1.jpg" alt="<?=$image['name']?>" /></a>
+                                <a href="<?=base_url().$image['path']?>"><img src="<?=base_url().$image['thumb']?>" alt="<?=$image['name']?>" /></a>
                             </li>
                         <? endforeach;?>
 
@@ -166,8 +166,10 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
         </div>
         <div class="line"></div>
         <div class="block_slogan">
-            <p>ElephantWeb! is a clean Premium HTML Theme suitable for <span>portfolio, company</span> and any kind of websites.</p>
-            <p>This theme <span>provides all</span> the main functionality you will need to present your product.</p>
+            <p>
+               <span> «FreeTime»</span> - для людей, которые чувствую вкус жизни и знают толк свободному времени!
+            </p>
+
         </div>
         <div id="latest-blogs" class="latest_block">
 
@@ -175,8 +177,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                 <div class="overlay">
                     <figure>
                         <a href="<?=base_url()?>events/today" class="overlay-mask">
-                            <a class="icon-view" href="<?=base_url()?>events/today" rel="prettyPhoto"></a>
-                            <a class="icon-link" href="<?=base_url()?>events/today" title="view portfolio"></a>
+
                         </a>
                         <div class="img-border">
                             <a href="<?=base_url()?>events/today"><img class="round_image" src="<?=base_url()?>public/img/image11.jpg" alt="pink light" /></a>
@@ -191,8 +192,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                 <div class="overlay">
                     <figure>
                         <a href="<?=base_url()?>events/week" class="overlay-mask">
-                            <a class="icon-view" href="<?=base_url()?>events/week" rel="prettyPhoto"></a>
-                            <a class="icon-link" href="<?=base_url()?>events/week" title="view portfolio"></a>
+
                         </a>
                         <div class="img-border">
                             <a href="<?=base_url()?>events/week"><img class="round_image" src="<?=base_url()?>public/img/image2.jpg" alt="pink light" /></a>
@@ -207,8 +207,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                 <div class="overlay">
                     <figure>
                         <a href="<?=base_url()?>events/month" class="overlay-mask">
-                            <a class="icon-view" href="<?=base_url()?>events/month" rel="prettyPhoto"></a>
-                            <a class="icon-link" href="<?=base_url()?>events/month" title="view portfolio"></a>
+
                         </a>
                         <div class="img-border">
                             <a href="<?=base_url()?>events/month"><img class="round_image" src="<?=base_url()?>public/img/image3.jpg" alt="pink light" /></a>
@@ -229,7 +228,9 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
             <? foreach($last_news as $news):?>
             <div class="column">
                 <div class="main_news_img">
-                    <img src="<?base_url()?><?=$news['path']?>" title="" alt=""  />
+                    <a href="<?base_url()?>blog/get_article/<?=$news['id']?>">
+                        <img src="<?base_url()?><?=$news['path']?>" title="" alt=""  />
+                    </a>
                 </div>
                 <div class="text">
                     <p><a href="<?base_url()?>blog/get_article/<?=$news['id']?>"><?=$news['title_ru']?></a></p>

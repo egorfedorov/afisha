@@ -1,4 +1,4 @@
-<div class="block_cont_left portfolio-items">
+<div class="block_cont_left portfolio-items" >
 
     <div class="container-frame">
         <div id="portfolio-filter" class="group">
@@ -26,12 +26,20 @@
         <? if($events): ?>
         <? foreach($events as $event):?>
         <li data-id="id-2" data-type="<?=$event['alias']?>" class="portfolio-data eight columns2 omega">
-            <div class="cut_image">
-                <img class="image_month" src="<?=$event['main_img']?>" alt="pink light" />
+            <!--div class="cut_image">
+                <a href="<?=base_url().'events/event/'.$event['id']?>">
+                    <img class="image_month" src="<?=$event['main_img']?>" alt="pink light" />
+                </a>
+            </div-->
+            <div class="latest_img see_big2">
+                <div>
+                    <a href="<?=$event['main_img']?>" rel="prettyPhoto[gallery1]"><img src="<?=$event['main_img']?>" title="111" alt="222" />
+                        <span class="icon"></span></a>
+                </div>
             </div>
-            <div class="title_filter"><a href=""> <?=$event['title']?></a></div>
-            <p>Adipiscing ut tortor aliquam sit ut,</p>
-        </li>
+            <div class="title_filter"><a href="<?=base_url().'events/event/'.$event['id']?>"> <?=$event['title']?></a></div>
+
+            </li>
         <? endforeach;?>
         <? endif; ?>
     </ul>

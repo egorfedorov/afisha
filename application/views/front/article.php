@@ -1,6 +1,6 @@
   <div class="block_cont_left">
             	<div class="block_blog post_type2">
-                    <div class="ad-gallery">
+                    <!--div class="ad-gallery">
                         <div class="ad-image-wrapper">
                             <div id="ad-image-description"></div>
                         </div>
@@ -11,13 +11,13 @@
                                     <li>
                                         <a href="<?=$img['path']?>"><img src="<?=$img['thumb']?>" alt="established fact that a reader will be distracted by the readable content of a page when looking." /></a>
                                     </li>
-
-
                                     <? endforeach;?>
-
                                 </ul>
                             </div>
                         </div>
+                    </div-->
+                    <div class="art_img">
+                        <img src="<?=base_url().$article_images[0]['path']?>" alt="" />
                     </div>
                 	<div class="title">
                     	<h3><?=$article['title_ru']?></h3>

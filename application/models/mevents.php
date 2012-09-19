@@ -16,7 +16,7 @@ class Mevents extends CI_Model
 		{
 			$this->db->select(implode(',', $fields));
 		}
-        $this->db->select('events.*', 'owner.name','category.category_name,category.alias');
+        $this->db->select('events.*, owner.name, category.category_name,category.alias');
 		if ($filter) $this->db->where($filter);
         if ($order_cat) $this->db->order_by($order_cat, $order_by);
         $where = "(every_day ='1' OR (every_day='0' AND date='".date('m-d-Y')."'))";
@@ -32,6 +32,7 @@ class Mevents extends CI_Model
 	}
     function events_month()
     {
+        $this->db->select('events.*, owner.name,category.category_name,category.alias');
         $this->db->where('date != ', '');
         $this->db->where('realtime > ', strtotime('now'));
         $this->db->where('realtime < ', strtotime('+1 month'));
@@ -44,6 +45,7 @@ class Mevents extends CI_Model
     }
     function events_week()
     {
+        $this->db->select('events.*, owner.name, category.category_name,category.alias');
         $this->db->where('date != ', '');
         $this->db->where('realtime > ', strtotime('now'));
         $this->db->where('realtime < ', strtotime('+1 week'));
@@ -81,7 +83,7 @@ class Mevents extends CI_Model
 	}
 	function events_list_by_category($name)
 	{
-		$query = $this->db->query('SELECT * FROM `events`JOIN `owner` ON `owner`.`id` = `events`.`id_owner`  WHERE category IN (SELECT id FROM category WHERE `alias` = "'.$name.'") ORDER BY time ASC');
+		$query = $this->db->query('SELECT events.*, owner.name FROM `events`JOIN `owner` ON `owner`.`id` = `events`.`id_owner`  WHERE category IN (SELECT id FROM category WHERE `alias` = "'.$name.'") ORDER BY time ASC');
 		$result = $query->result_array();
 		return $result ? $result : false;
 	}

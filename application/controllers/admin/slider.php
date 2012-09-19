@@ -70,11 +70,9 @@ class Slider extends CI_Controller
 		        else
 		        {
 			        $data = array('upload_data' => $this->upload->data());
-
-
                     $config_res['image_library'] = 'gd2';
                     $config_res['source_image']	= $data['upload_data']['full_path'];
-                    $config_res['new_image'] = $data['upload_data']['file_path'].'thumbs/'.$image_name;
+                    $config_res['new_image'] = $data['upload_data']['file_path'].'thumbs/'.$data['upload_data']['file_name'];
                     $config_res['maintain_ratio'] = TRUE;
                     $config_res['width']	 = 130;
                     $config_res['height']	= 74;
@@ -88,7 +86,7 @@ class Slider extends CI_Controller
 
                     $data = array(
                         'path'=>'uploads/slider/'.$data['upload_data']['file_name'],
-                        'thumb' => '/uploads/slider/thoumbs/'.$image_name,
+                        'thumb' => '/uploads/slider/thumbs/'.$data['upload_data']['file_name'],
                         'name' => $title
                     );
                     $this->mslider->add_slide($data);
