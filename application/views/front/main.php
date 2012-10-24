@@ -207,7 +207,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                 <div class="overlay">
                     <figure>
                         <a href="<?=base_url()?>events/month" class="overlay-mask">
-
+                            
                         </a>
                         <div class="img-border">
                             <a href="<?=base_url()?>events/month"><img class="round_image" src="<?=base_url()?>public/img/image3.jpg" alt="pink light" /></a>
