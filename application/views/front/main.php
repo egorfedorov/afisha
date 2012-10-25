@@ -52,7 +52,20 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/jquery.ad-gallery.css" />
 
 
+<script type="text/javascript">
 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35860032-1']);
+  _gaq.push(['_setDomainName', 'freetime.ck.ua']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </head>
 <body>
 <div id="wrapper">
@@ -64,7 +77,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
             </div>
             <div class="col_2">
                 <div class="block_social_top">
-                    <p>Follow us:</p>
+                    <p>Присоединяйся:</p>
                     <a href="#" class="facebook">Facebook</a>
                     <a href="#" class="twitter">Twitter</a>
                     <a href="#" class="rss">Rss</a>
@@ -78,15 +91,18 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
             </div>
             <div id="menu">
                 <ul>
-                    <li><a href="<?=base_url()?>">Головна<span>на сегодня</span></a>
-                        <!--ul>
-                            <li><a href="index.html">Basic slider</a></li>
-                            <li><a href="index2.html">Nivo slider</a></li>
-                            <li><a href="index3.html">Thumbnail slider</a></li>
+                  <li><a href="<?=base_url()?>" <? if($menu_id == 'main')echo 'class="active"';?>>Главная<span>на сегодня</span></a>
 
-                        </ul-->
                     </li>
-                    <li><a href="<?=base_url()?>page/o-kompanii">О проекте<span>о нас</span></a></li>
+                    <li><a href="<?base_url()?>events/today" <? if($menu_id == 'events')echo 'class="active"';?>>События<span>куда пойти</span></a>
+                        <ul>
+                            <li><a href="<?base_url()?>events/today">Сегодня</a></li>
+                            <li><a href="<?base_url()?>events/week">На этой неделе</a></li>
+                            <li><a href="<?base_url()?>events/month">В этом месяце</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="<?=base_url()?>page/o-kompanii" <? if($menu_id == 'blog')echo 'class="project"';?>>О проекте<span>о нас</span></a></li>
                     <!--li><a href="columns.html">Features<span>about this theme</span></a>
                         <ul>
                             <li><a href="columns.html">Columns</a></li>
@@ -120,7 +136,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                             <li><a href="portfolio_item.html">Portfolio item page</a></li>
                         </ul>
                     </li-->
-                    <li><a href="<?=base_url()?>/blog" class="active">Блог<span>статьи</span></a>
+                    <li><a href="<?=base_url()?>/blog" <? if($menu_id == 'blog')echo 'class="active"';?> >Блог<span>статьи</span></a>
                         <!--ul>
                             <li><a href="blog1.html" class="active">blog style 1</a></li>
                             <li><a href="blog2.html">blog style 2</a></li>
@@ -138,7 +154,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                             </li>
                         </ul-->
                     </li>
-                    <li><a href="<?=base_url()?>contact">Контакт<span>ваши отзывы</span></a></li>
+                    <li><a href="<?=base_url()?>contact" <? if($menu_id == 'contact')echo 'class="active"';?>>Контакт<span>ваши отзывы</span></a></li>
                 </ul>
             </div>
         </div>
@@ -156,7 +172,9 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                     <ul class="ad-thumb-list">
                         <? foreach($images as $image):?>
                             <li>
-                                <a href="<?=base_url().$image['path']?>"><img src="<?=base_url().$image['thumb']?>" alt="<?=$image['name']?>" /></a>
+                                <a href="<?=base_url().$image['path']?>">
+                                    <img src="<?=base_url().$image['thumb']?>" alt="<?=$image['name']?>" longdesc="<?=$image['link']?>" />
+                                </a>
                             </li>
                         <? endforeach;?>
 
@@ -234,7 +252,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                 </div>
                 <div class="text">
                     <p><a href="<?base_url()?>blog/get_article/<?=$news['id']?>"><?=$news['title_ru']?></a></p>
-                    <p class="date"><?=$news['pub_date']?> </p>
+                    <p class="date"><?=date("F j, Y",strtotime($news['pub_date']))?> </p>
                 </div>
             </div>
             <? endforeach; ?>
@@ -249,11 +267,11 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                 <a href="index.html"><img src="<?base_url()?>public/img/logo_f.jpg" alt="ElephantWeb" title="ElephantWeb" /></a>
             </div>
             <div class="block_copyrights">
-                <p>The ElephantWeb, Los Angeles</p>
-                <p>tel: (489) 450-7821 email: info@elephant.com</p>
+                <p>Freetime.ck.ua, Все события Черкасс</p>
+                <p>email: freetimeck@gmail.com</p>
             </div>
             <div class="block_social_footer">
-                <p>Follow us:</p>
+                <p>Присоединяйся:</p>
                 <a href="#" class="facebook">Facebook</a>
                 <a href="#" class="twitter">Twitter</a>
                 <a href="#" class="rss">Rss</a>

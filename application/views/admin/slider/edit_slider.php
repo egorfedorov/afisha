@@ -9,8 +9,13 @@
         <form method="post" action="<?=base_url()?>admin/slider/submit" enctype="multipart/form-data" >
             <ul class="form_fields_container">
                 <li>
-                    <label class="label notice" for="title_ru">Название Слайда</label>
+                    <label class="label notice" >Название Слайда</label>
                     <div class="form_input"><input type="text" value="" class="text medium" name="title" /></div>
+                </li>
+                <li>
+                <li>
+                    <label class="label notice" >Ссылка</label>
+                    <div class="form_input"><input type="text" value="" class="text medium" name="link" /></div>
                 </li>
                 <li>
                 <label class="label notice">Слайд</label>

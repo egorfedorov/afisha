@@ -1396,10 +1396,13 @@ height: 36px !important;
     width:34px;
 }
 .share_block{
-    padding-left:567px;
-    margin-top:20px;
+   margin: 20px 0 40px 340px;
+   
 }
+.share_block_art{
+   margin: 20px 0 40px 406px;
 
+}
 .button.white {
     text-shadow: 1px 1px 0px #f8f8f8;
     color: #717171;

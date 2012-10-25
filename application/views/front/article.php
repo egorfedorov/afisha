@@ -58,8 +58,36 @@
 
                     <div class="blog_content">
                     	<p><?=$article['text_ru']?></p>
+                         <div class="share_block_art">
+            <div class="share_btn">
+                <a href="https://www.facebook.com/sharer.php?u=<?=$meta['link']?>" target="_blank">
+                    <img src="<?=base_url()?>public/img/fb.png" />
+                </a>
+            </div>
+            <div class="share_btn">
+                <a href="http://vkontakte.ru/share.php?url=<?=$meta['link']?>" target="_blank">
+                    <img src="<?=base_url()?>public/img/vk.png" />
+                </a>
+            </div>
+            <div class="share_btn">
+                <a href="http://twitter.com/home?status=<?=$meta['description']?><?=$meta['link']?>"  title="Click to share this post on Twitter" target="_blank">
+                    <img src="<?=base_url()?>public/img/tw.png" />
+                </a>
+            </div>
+            </div>
                     </div>
 
-          
+               <!-- Put this script tag to the <head> of your page -->
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?60"></script>
+
+<script type="text/javascript">
+  VK.init({apiId: 3197076, onlyWidgets: true});
+</script>
+
+<!-- Put this div tag to the place, where the Comments block will be -->
+<div id="vk_comments"></div>
+<script type="text/javascript">
+VK.Widgets.Comments("vk_comments", {limit: 15, width: "670", attach: "*"});
+</script>
 
             </div> </div>

@@ -8,6 +8,7 @@ class Blog extends ControllerBase
 		$this->load->model(array('marticles', 'mmenu', 'mimages', 'mcategory'));
         $this->data['last_news'] =  $this->marticles->articles_list_last(5);
         $this->data['cat_left'] = $this->mcategory->categories_list();
+        $this->data['menu_id'] = 'blog';
 	}		
 	
 	function index()

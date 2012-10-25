@@ -8,6 +8,7 @@ class Main extends ControllerBase  {
         $this->load->model(array('mconfig', 'mpages', 'mslider', 'marticles', 'mcategory'));
         $this->data['cat_left'] = $this->mcategory->categories_list();
         $this->data['menu_id'] = 0;
+        $this->data['menu_id'] = 'main';
     }
 
 	public function index()

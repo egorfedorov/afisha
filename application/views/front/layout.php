@@ -50,7 +50,20 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
     <script type="text/javascript" src="<?=base_url()?>public/js/slider3.js"></script>
     <script type="text/javascript" src="<?=base_url()?>public/js/jquery.ad-gallery.js"></script>
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/jquery.ad-gallery.css" />
+<script type="text/javascript">
 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35860032-1']);
+  _gaq.push(['_setDomainName', 'freetime.ck.ua']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </head>
 <body>
 <div id="wrapper">
@@ -62,7 +75,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
             </div>
             <div class="col_2">
                 <div class="block_social_top">
-                    <p>Follow us:</p>
+                    <p>Присоединяйся:</p>
                     <a href="#" class="facebook">Facebook</a>
                     <a href="#" class="twitter">Twitter</a>
                     <a href="#" class="rss">Rss</a>
@@ -75,16 +88,19 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                 <a href="<?=base_url()?>"><img src="<?=base_url()?>public/img/logo.jpg" alt="ElephantWeb" title="ElephantWeb" /></a>
             </div>
             <div id="menu">
-                <ul>
-                    <li><a href="<?=base_url()?>">Головна<span>на сегодня</span></a>
-                        <!--ul>
-                            <li><a href="index.html">Basic slider</a></li>
-                            <li><a href="index2.html">Nivo slider</a></li>
-                            <li><a href="index3.html">Thumbnail slider</a></li>
+               <ul>
+                  <li><a href="<?=base_url()?>" <? if($menu_id == 'main')echo 'class="active"';?>>Главная<span>на сегодня</span></a>
 
-                        </ul-->
                     </li>
-                    <li><a href="<?=base_url()?>page/o-kompanii">О проекте<span>о нас</span></a></li>
+                    <li><a href="<?base_url()?>events/today" <? if($menu_id == 'events')echo 'class="active"';?>>События<span>куда пойти</span></a>
+                        <ul>
+                            <li><a href="<?base_url()?>events/today">Сегодня</a></li>
+                            <li><a href="<?base_url()?>events/week">На этой неделе</a></li>
+                            <li><a href="<?base_url()?>events/month">В этом месяце</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="<?=base_url()?>page/o-kompanii" <? if($menu_id == 'blog')echo 'class="project"';?>>О проекте<span>о нас</span></a></li>
                     <!--li><a href="columns.html">Features<span>about this theme</span></a>
                         <ul>
                             <li><a href="columns.html">Columns</a></li>
@@ -118,7 +134,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                             <li><a href="portfolio_item.html">Portfolio item page</a></li>
                         </ul>
                     </li-->
-                    <li><a href="<?=base_url()?>/blog" class="active">Блог<span>статьи</span></a>
+                    <li><a href="<?=base_url()?>/blog" <? if($menu_id == 'blog')echo 'class="active"';?> >Блог<span>статьи</span></a>
                         <!--ul>
                             <li><a href="blog1.html" class="active">blog style 1</a></li>
                             <li><a href="blog2.html">blog style 2</a></li>
@@ -136,7 +152,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                             </li>
                         </ul-->
                     </li>
-                    <li><a href="<?=base_url()?>contact">Контакт<span>ваши отзывы</span></a></li>
+                    <li><a href="<?=base_url()?>contact" <? if($menu_id == 'contact')echo 'class="active"';?>>Контакт<span>ваши отзывы</span></a></li>
                 </ul>
             </div>
         </div>
@@ -177,7 +193,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
         <h4>категории</h4>
         <ul class="list2">
             <? foreach($cat_left as $item):?>
-            <li><a href="<?=base_url()?>/events/category/<?=$item['alias']?>"><?=$item['category_name']?></a> </li>
+            <li><a href="<?=base_url()?>events/category/<?=$item['alias']?>"><?=$item['category_name']?></a> </li>
             <? endforeach;?>
 
             <!--li><a href="#">Photography</a> (2)</li>
@@ -192,7 +208,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
             <div class="img"><a href="<?=base_url()?>blog/get_article/<?=$news['id']?>"><img style="width: 40px;" src="<?=base_url()?><?=$news['path']?>" alt="" title="" /></a></div>
             <div class="text">
                 <p><a href="<?=base_url()?>blog/get_article/<?=$news['id']?>"><?=$news['title_ru']?></a></p>
-                <p class="date">October 5, 2011 </p>
+                <p class="date"><? russian_date(strtotime($news['pub_date']));?> </p>
             </div>
         </div>
         <? endforeach;?>
@@ -228,20 +244,21 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
 <div class="block_other">
     <div class="block_blog">
         <h4>Последние статьи</h4>
-        <? $i=0;?>
+        <? $i=0; //print_r($last_news);die;?>
         <? foreach($last_news as $news):?>
         <? if($i<2):?>
         <div class="post">
             <div class="img"><a href="<?=base_url()?>blog/get_article/<?=$news['id']?>"><img style="width: 40px;" src="<?=base_url()?><?=$news['path']?>" alt="" title="" /></a></div>
             <div class="text">
                 <p><a href="<?=base_url()?>blog/get_article/<?=$news['id']?>"><?=$news['title_ru']?></a></p>
-                <p class="date">October 5, 2011 </p>
+                <p class="date"><?php russian_date(strtotime($news['pub_date']));?> </p>
             </div>
         </div>
             <div class="line2"></div>
             <? endif;?>
         <? $i++;?>
         <? endforeach;?>
+
     </div>
     <div class="block_twitter">
         <h4>Twitter Widget</h4>
@@ -257,16 +274,12 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
     </div>
     <div class="block_portfolio">
         <h4>Категории</h4>
-        <a href="<?=base_url()?>events/category/cinema">Кино</a>
-        <div class="line2"></div>
-        <!--a href="#">Photography</a>
-        <div class="line2"></div>
-        <a href="#">Icons</a>
-        <div class="line2"></div>
-        <a href="#">Illustration</a>
-        <div class="line2"></div>
-        <a href="#">Branding Design</a>
-        <div class="line2"></div-->
+        <? foreach($cat_left as $item):?>
+            <a href="<?=base_url()?>/events/category/<?=$item['alias']?>"><?=$item['category_name']?></a>
+            <div class="line2"></div>
+
+        <? endforeach;?>
+        
     </div>
 
 </div>
@@ -280,11 +293,11 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                 <a href="index.html"><img src="<?=base_url()?>public/img/logo_f.jpg" alt="ElephantWeb" title="ElephantWeb" /></a>
             </div>
             <div class="block_copyrights">
-                <p>The ElephantWeb, Los Angeles</p>
-                <p>tel: (489) 450-7821 email: info@elephant.com</p>
+                <p>Freetime.ck.ua, Все события Черкасс</p>
+                <p>email: freetimeck@gmail.com</p>
             </div>
             <div class="block_social_footer">
-                <p>Follow us:</p>
+                <p>Присоединяйся:</p>
                 <a href="#" class="facebook">Facebook</a>
                 <a href="#" class="twitter">Twitter</a>
                 <a href="#" class="rss">Rss</a>
@@ -293,6 +306,26 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
     </div>
 </div>
 </div>
+   <?
+    function russian_date($time){
+$date=explode(".", date("d.m.Y", $time));
+switch ($date[1]){
+case 1: $m='января'; break;
+case 2: $m='февраля'; break;
+case 3: $m='марта'; break;
+case 4: $m='апреля'; break;
+case 5: $m='мая'; break;
+case 6: $m='июня'; break;
+case 7: $m='июля'; break;
+case 8: $m='августа'; break;
+case 9: $m='сентября'; break;
+case 10: $m='октября'; break;
+case 11: $m='ноября'; break;
+case 12: $m='декабря'; break;
+}
+echo $date[0].'&nbsp;'.$m.'&nbsp;'.$date[2];
+}
+    ?>
 </body>
 
 </html>

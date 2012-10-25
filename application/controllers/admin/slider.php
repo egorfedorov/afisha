@@ -55,6 +55,7 @@ class Slider extends CI_Controller
 
 		// POST data
 		$title = $this->input->post('title');
+        $link = $this->input->post('link');
 		// Save banners
         $config['upload_path'] = './uploads/slider/';
 		$config['allowed_types'] = 'gif|jpg|png';
@@ -87,7 +88,8 @@ class Slider extends CI_Controller
                     $data = array(
                         'path'=>'uploads/slider/'.$data['upload_data']['file_name'],
                         'thumb' => '/uploads/slider/thumbs/'.$data['upload_data']['file_name'],
-                        'name' => $title
+                        'name' => $title,
+                        'link' => $link
                     );
                     $this->mslider->add_slide($data);
 		        }
