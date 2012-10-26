@@ -1,8 +1,8 @@
 <div id="content" class="block_cont_left">
     	<div class="inner">
         	<div class="page_title">
-            	<h1>Contact Us</h1>
-                <p class="page_description">This is a custom subpage description</p>
+            	<h1>Напиши нам</h1>
+                <p class="page_description">Задай нам вопрос</p>
                 <div class="page_navigation">
                 	<ul>
                     	<li><a href="index.html">Elephant Home</a></li>

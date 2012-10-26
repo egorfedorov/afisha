@@ -100,7 +100,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
 
                         </ul>
                     </li>
-                    <li><a href="<?=base_url()?>page/o-kompanii" <? if($menu_id == 'blog')echo 'class="project"';?>>О проекте<span>о нас</span></a></li>
+                    <li><a href="<?=base_url()?>page/o-kompanii" <? if($menu_id == 'about')echo 'class="project"';?>>О проекте<span>о нас</span></a></li>
                     <!--li><a href="columns.html">Features<span>about this theme</span></a>
                         <ul>
                             <li><a href="columns.html">Columns</a></li>
@@ -262,15 +262,17 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
     </div>
     <div class="block_twitter">
         <h4>Twitter Widget</h4>
-        <div class="text">
-            <p>Sanfrancisco2010: Prefer freelancer that has experience are <a href="#">http://bit.ly/rIZgm6</a></p>
-            <p class="date">14 minutes ago</p>
-        </div>
-        <div class="line2"></div>
-        <div class="text">
-            <p>Download Editable &amp; Password Free MTA NYC Subway Map <a href="#">http://goo.gl/vTGVF</a></p>
-            <p class="date">26 minutes ago</p>
-        </div>
+        <? if(isset($tweets)):?>
+            <? foreach($tweets as $tweet):?>
+            <div class="text">
+                <p><?=$tweet['name']?>: <?=$tweet['text']?></p>
+                <p class="date"><?php russian_date(strtotime($tweet['time']));?></p>
+            </div>
+            <div class="line2"></div>
+
+           <? endforeach;?>
+        <? endif;?>
+
     </div>
     <div class="block_portfolio">
         <h4>Категории</h4>
