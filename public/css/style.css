@@ -1555,3 +1555,11 @@ width: 670px;
     height: 250px;
     overflow: hidden;
 }
+.text .date{
+    font-style: italic;
+    font-size: 11px;
+    text-align: right;
+}
+.tit{
+    height: 34px;
+}

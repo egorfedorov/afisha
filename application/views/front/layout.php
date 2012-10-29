@@ -21,13 +21,13 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Куда пойти в Черкассах</title>
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    <meta property="og:title" content="Куда пойти в Черкассах"/>
+    <meta property="og:title" content="Куда пойти в Черкассах - <?=$meta['title']?>"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content=""/>
-    <meta property="og:image" content=""/>
-    <meta property="og:site_name" content="freetime "/>
+    <meta property="og:url" content="<?=$meta['url']?>"/>
+    <meta property="og:image" content="<?=$meta['img']?>"/>
+    <meta property="og:site_name" content="freetime.ck.ua"/>
     <meta property="og:description"
-          content="Список мест куда можно пойти в Черкассах. Кинотеатры, музеи, выставки"/>
+          content="<?=htmlspecialchars($meta['desc'])?>"/>
 
 
 
@@ -92,11 +92,11 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                   <li><a href="<?=base_url()?>" <? if($menu_id == 'main')echo 'class="active"';?>>Главная<span>на сегодня</span></a>
 
                     </li>
-                    <li><a href="<?base_url()?>events/today" <? if($menu_id == 'events')echo 'class="active"';?>>События<span>куда пойти</span></a>
+                    <li><a href="<?=base_url()?>events/today" <? if($menu_id == 'events')echo 'class="active"';?>>События<span>куда пойти</span></a>
                         <ul>
-                            <li><a href="<?base_url()?>events/today">Сегодня</a></li>
-                            <li><a href="<?base_url()?>events/week">На этой неделе</a></li>
-                            <li><a href="<?base_url()?>events/month">В этом месяце</a></li>
+                            <li><a href="<?=base_url()?>events/today">Сегодня</a></li>
+                            <li><a href="<?=base_url()?>events/week">На этой неделе</a></li>
+                            <li><a href="<?=base_url()?>events/month">В этом месяце</a></li>
 
                         </ul>
                     </li>

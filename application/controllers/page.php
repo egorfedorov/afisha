@@ -18,7 +18,12 @@ class Page extends ControllerBase
 		$this->data['page'] = $this->mpages->get_page($name, true);
 		if (!$this->data['page']) show_404();
 		$this->data['main_menu'] = $this->mmenu->menu_items(array('status' => '1'), true);
-
+        $this->data['meta'] = array(
+            'title' => 'Афиша на неделю',
+            'url' => base_url().'events/week',
+            'img' => base_url().'public/logo.jpg',
+            'desc' => 'Все события города Черкассы на одном сайте'
+        );
 		$this->data['content'] = 'front/page';
         $this->data['body_onload'] = '';
         $this->data['extra_head_content'] = '';

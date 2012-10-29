@@ -87,18 +87,18 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
         <div class="line"></div>
         <div class="block_mid">
             <div id="logo">
-                <a href="<?=base_url()?>"><img src="<?base_url()?>public/img/logo.jpg" alt="ElephantWeb" title="ElephantWeb" /></a>
+                <a href="<?=base_url()?>"><img src="<?=base_url()?>public/img/logo.jpg" alt="ElephantWeb" title="ElephantWeb" /></a>
             </div>
             <div id="menu">
                 <ul>
                   <li><a href="<?=base_url()?>" <? if($menu_id == 'main')echo 'class="active"';?>>Главная<span>на сегодня</span></a>
 
                     </li>
-                    <li><a href="<?base_url()?>events/today" <? if($menu_id == 'events')echo 'class="active"';?>>События<span>куда пойти</span></a>
+                    <li><a href="<?=base_url()?>events/today" <? if($menu_id == 'events')echo 'class="active"';?>>События<span>куда пойти</span></a>
                         <ul>
-                            <li><a href="<?base_url()?>events/today">Сегодня</a></li>
-                            <li><a href="<?base_url()?>events/week">На этой неделе</a></li>
-                            <li><a href="<?base_url()?>events/month">В этом месяце</a></li>
+                            <li><a href="<?=base_url()?>events/today">Сегодня</a></li>
+                            <li><a href="<?=base_url()?>events/week">На этой неделе</a></li>
+                            <li><a href="<?=base_url()?>events/month">В этом месяце</a></li>
 
                         </ul>
                     </li>
@@ -246,13 +246,13 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
             <? foreach($last_news as $news):?>
             <div class="column">
                 <div class="main_news_img">
-                    <a href="<?base_url()?>blog/get_article/<?=$news['id']?>">
-                        <img src="<?base_url()?><?=$news['path']?>" title="" alt=""  />
+                    <a href="<?=base_url()?>blog/get_article/<?=$news['id']?>">
+                        <img src="<?=base_url()?><?=$news['path']?>" title="" alt=""  />
                     </a>
                 </div>
                 <div class="text">
-                    <p><a href="<?base_url()?>blog/get_article/<?=$news['id']?>"><?=$news['title_ru']?></a></p>
-                    <p class="date"><?=date("F j, Y",strtotime($news['pub_date']))?> </p>
+                    <p class="tit"><a href="<?=base_url()?>blog/get_article/<?=$news['id']?>"><?=$news['title_ru']?></a></p>
+                    <p class="date"><?php russian_date(strtotime($news['pub_date']));?> </p>
                 </div>
             </div>
             <? endforeach; ?>
@@ -264,7 +264,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
         <div class="line"></div>
         <div class="block_footer">
             <div id="logo_footer">
-                <a href="index.html"><img src="<?base_url()?>public/img/logo_f.jpg" alt="ElephantWeb" title="ElephantWeb" /></a>
+                <a href="<?=base_url()?>"><img src="<?=base_url()?>public/img/logo_f.jpg" alt="FreeTime.ck.ua" title="FreeTime.ck.ua" /></a>
             </div>
             <div class="block_copyrights">
                 <p>Freetime.ck.ua, Все события Черкасс</p>
@@ -283,3 +283,23 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
 </body>
 
 </html>
+<?
+function russian_date($time){
+$date=explode(".", date("d.m.Y", $time));
+switch ($date[1]){
+case 1: $m='января'; break;
+case 2: $m='февраля'; break;
+case 3: $m='марта'; break;
+case 4: $m='апреля'; break;
+case 5: $m='мая'; break;
+case 6: $m='июня'; break;
+case 7: $m='июля'; break;
+case 8: $m='августа'; break;
+case 9: $m='сентября'; break;
+case 10: $m='октября'; break;
+case 11: $m='ноября'; break;
+case 12: $m='декабря'; break;
+}
+echo $date[0].'&nbsp;'.$m.'&nbsp;'.$date[2];
+}
+?>

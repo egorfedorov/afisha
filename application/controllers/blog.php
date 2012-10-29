@@ -10,6 +10,12 @@ class Blog extends ControllerBase
         $this->data['cat_left'] = $this->mcategory->categories_list();
         $this->data['menu_id'] = 'blog';
         $this->data['tweets'] = $this->mtweet->tweets_list();
+        $this->data['meta'] = array(
+            'title' => 'Афиша на неделю',
+            'url' => base_url().'events/week',
+            'img' => base_url().'public/logo.jpg',
+            'desc' => 'Все события города Черкассы на одном сайте'
+        );
 	}		
 	
 	function index()
@@ -20,7 +26,7 @@ class Blog extends ControllerBase
         foreach($images as $img){
             $this->data['articles_images'][$img['item_id']] = $img;
         }
-
+/*
         $new_tweets =  $this->get_tweets();
 
         $tweetids = $this->mtweet->tweets_ids();
@@ -41,7 +47,14 @@ class Blog extends ControllerBase
                 $this->mtweet->add_tweet($insert_data);
             }
         }
+*/
         $this->data['tweets'] = $this->mtweet->tweets_list();
+        $this->data['meta'] = array(
+            'title' => 'Афиша на неделю',
+            'url' => base_url().'events/week',
+            'img' => base_url().'public/logo.jpg',
+            'desc' => 'Все события города Черкассы на одном сайте'
+        );
         $this->data['content'] = 'front/articles_list';
         $this->load->view('front/layout', $this->data);
 	}

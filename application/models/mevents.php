@@ -75,8 +75,10 @@ class Mevents extends CI_Model
     }
 	function event_info($id)
 	{
-
-		$this->db->where('id', $id);
+        $this->db->select('events.*, owner.name, category.category_name,category.alias');
+		$this->db->where('events.id', $id);
+        $this->db->join('owner', 'owner.id = events.id_owner');
+        $this->db->join('category', 'category.id = events.category');
 		$query = $this->db->get('events');
 		$result = $query->row_array();
 		return $result ? $result : false;

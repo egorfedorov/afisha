@@ -12,9 +12,9 @@
             <div class="blog_info">
                 <h3><?=$event['title']?></h3>
                 <ul>
-                    <li><i>posted by</i> <a href="#">Admin</a></li>
-                    <li><i>in</i> <a href="#">Web Design</a></li>
-                    <li><a href="#comments">5</a> comments</li>
+                    <li><i>место проведения </i> <a href="#"><?=$event['name']?></a></li>
+                    <li><i>категория</i> <a href="<?=base_url().'events/category/'.$event['alias']?>"><?=$event['category_name']?></a></li>
+                    <!--li><a href="#">7</a> comments</li-->
                 </ul>
             </div>
         </div>
@@ -22,17 +22,17 @@
             <p><?=$event['description']?></p>
             <div class="share_block">
             <div class="share_btn">
-                <a href="https://www.facebook.com/sharer.php?u=<?=$meta['link']?>" target="_blank">
+                <a href="https://www.facebook.com/sharer.php?u=<?=$meta['url']?>" target="_blank">
                     <img src="<?=base_url()?>public/img/fb.png" />
                 </a>
             </div>
             <div class="share_btn">
-                <a href="http://vkontakte.ru/share.php?url=<?=$meta['link']?>" target="_blank">
+                <a href="http://vkontakte.ru/share.php?url=<?=$meta['url']?>" target="_blank">
                     <img src="<?=base_url()?>public/img/vk.png" />
                 </a>
             </div>
             <div class="share_btn">
-                <a href="http://twitter.com/home?status=<?=$meta['description']?><?=$meta['link']?>"  title="Click to share this post on Twitter" target="_blank">
+                <a href="http://twitter.com/home?status=<?=$meta['url']?>"  title="Click to share this post on Twitter" target="_blank">
                     <img src="<?=base_url()?>public/img/tw.png" />
                 </a>
             </div>

@@ -33,6 +33,12 @@ class Events extends ControllerBase
     {
         $this->data['events'] = $this->mevents->events_list(null, null,'time', 'ASC',date("H:i:s"));
        // print_r($this->data['events']);die;
+        $this->data['meta'] = array(
+            'title' => 'Афиша на сегодня',
+            'url' => base_url().'events/today',
+            'img' => base_url().'public/logo.jpg',
+            'desc' => 'Все события города Черкассы на одном сайте'
+        );
         $this->data['content'] = 'front/events_list';
         $this->load->view('front/layout', $this->data);
     }
@@ -47,6 +53,12 @@ class Events extends ControllerBase
         }
         }
         $this->data['categories'] = $cat;
+        $this->data['meta'] = array(
+            'title' => 'Афиша на неделю',
+            'url' => base_url().'events/week',
+            'img' => base_url().'public/logo.jpg',
+            'desc' => 'Все события города Черкассы на одном сайте'
+        );
        // print_r($this->data['categories']);die;
         $this->data['content'] = 'front/events_week';
         $this->load->view('front/layout', $this->data);
@@ -63,7 +75,73 @@ class Events extends ControllerBase
         }
         }
         $this->data['categories'] = $cat;
+        $this->data['meta'] = array(
+            'title' => 'Афиша на месяц',
+            'url' => base_url().'events/month',
+            'img' => base_url().'public/logo.jpg',
+            'desc' => 'Все события города Черкассы на одном сайте'
+        );
         $this->data['content'] = 'front/events_month';
+        $this->load->view('front/layout', $this->data);
+    }
+    function event($id)
+    {
+        $this->data['event'] = $this->mevents->event_info($id);
+        //print_r($this->data['event']);die;
+        if (!$this->data['event']) show_404();
+        //$data = array('view' => 'view+1');
+        //$this->marticles->update_view($id);
+
+        $this->data['meta'] = array(
+            'title' => 'Афиша на сегодня',
+            'url' => base_url().'events/event/'.$id,
+            'img' => $this->data['event']['main_img'],
+            'desc' =>$this->data['event']['description']
+        );
+        //$this->data['main_menu'] = $this->mmenu->menu_items(array('status' => '1'), true);
+        $this->data['content'] = 'front/event';
+        $this->load->view('front/layout', $this->data);
+    }
+    function category($name = 'cinema')
+    {
+        $this->data['events'] = $this->mevents->events_list_by_category($name);
+        //print_r($this->data['events']);die;
+        if (!$this->data['events']) show_404();
+        $this->data['meta'] = array(
+            'title' => 'Афиша на месяц',
+            'url' => base_url().'events/today',
+            'img' => base_url().'public/logo.jpg',
+            'desc' => 'Все события города Черкассы на одном сайте'
+        );
+        $this->data['content'] = 'front/events_list';
+        $this->load->view('front/layout', $this->data);
+    }
+    function add_event()
+    {
+        //$this->data['events'] = $this->mevents->events_list_by_category($name);
+        //print_r($this->data['events']);die;
+        //if (!$this->data['events']) show_404();
+
+        $this->data['content'] = 'front/add_event';
+        $this->load->view('front/layout', $this->data);
+    }
+    function popular_article()
+    {
+        // echo 'asdf';die;
+        $this->data['articles'] = $this->marticles->articles_list(null, array('status' => '1'), true, 'view','desc');
+        // print_r($this->data['articles']);die;
+        $this->data['main_menu'] = $this->mmenu->menu_items(array('status' => '1'), true);
+        $this->data['content'] = 'front/articles_list';
+        $this->load->view('front/layout', $this->data);
+    }
+    function get_article($id)
+    {
+        $this->data['article'] = $this->marticles->article_info($id, true);
+        if (!$this->data['article']) show_404();
+        //$data = array('view' => 'view+1');
+        $this->marticles->update_view($id);
+        $this->data['main_menu'] = $this->mmenu->menu_items(array('status' => '1'), true);
+        $this->data['content'] = 'front/article';
         $this->load->view('front/layout', $this->data);
     }
     function curl_file_get_contents($url)
@@ -237,56 +315,7 @@ class Events extends ControllerBase
 
 
     }
-    function event($id)
-    {
-        $this->data['event'] = $this->mevents->event_info($id);
-        //print_r($this->data['event']);die;
-        if (!$this->data['event']) show_404();
-        //$data = array('view' => 'view+1');
-        //$this->marticles->update_view($id);
-        $this->data['meta']['description'] = '';
-        $this->data['meta']['link'] = base_url().'events/event'.$id;
-        //$this->data['main_menu'] = $this->mmenu->menu_items(array('status' => '1'), true);
-        $this->data['content'] = 'front/event';
-        $this->load->view('front/layout', $this->data);
-    }
-    function category($name = 'cinema')
-    {
-        $this->data['events'] = $this->mevents->events_list_by_category($name);
-        //print_r($this->data['events']);die;
-        if (!$this->data['events']) show_404();
 
-        $this->data['content'] = 'front/events_list';
-        $this->load->view('front/layout', $this->data);
-    }
-    function add_event()
-    {
-        //$this->data['events'] = $this->mevents->events_list_by_category($name);
-        //print_r($this->data['events']);die;
-        //if (!$this->data['events']) show_404();
-
-        $this->data['content'] = 'front/add_event';
-        $this->load->view('front/layout', $this->data);
-    }
-	function popular_article()
-	{
-       // echo 'asdf';die;
-		$this->data['articles'] = $this->marticles->articles_list(null, array('status' => '1'), true, 'view','desc');
-       // print_r($this->data['articles']);die;
-		$this->data['main_menu'] = $this->mmenu->menu_items(array('status' => '1'), true);
-		$this->data['content'] = 'front/articles_list';
-        $this->load->view('front/layout', $this->data);
-	}
-	function get_article($id)
-	{
-		$this->data['article'] = $this->marticles->article_info($id, true);
-		if (!$this->data['article']) show_404();
-        //$data = array('view' => 'view+1');
-        $this->marticles->update_view($id);
-		$this->data['main_menu'] = $this->mmenu->menu_items(array('status' => '1'), true);				
-		$this->data['content'] = 'front/article';				
-        $this->load->view('front/layout', $this->data);
-	}
 
 }
 
