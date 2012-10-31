@@ -1194,11 +1194,12 @@ table tr:hover td{
 	background-repeat:no-repeat;
 	background-position:0px 10px;
 	padding-left:25px;
-	margin-left:20px;
-	margin-right:20px;
+	margin-left:8px;
+	margin-right:-8px;
+
 	float:left;
 	font-size:10px;
-	color:#a6a6a6!important;
+	color:#0099FF!important;
 	text-shadow:0px 1px 0px #FFFFFF;
 	text-decoration:none;
 	padding-top:10px;
@@ -1406,3 +1407,5 @@ label#message_label{
 #contactMessage:focus{
 	border-color:#e34e47;
 }
+.mob_event_div{
+padding-bottom:20px;

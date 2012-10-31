@@ -9,7 +9,7 @@
     <div class="gallery2">
         <?php if ($events) : ?>
         <?php foreach ($events as $event) : ?>
-        <div>
+        <div class="mob_event_div">
 
                 <img src="<?=$event['main_img']?>" alt="<?=$event['title']?>" class="event_img"/>
 
@@ -17,8 +17,7 @@
             <div class="more_in">
             <a href="#" class="posted-by"><?=$event['category_name']?></a>
             <a href="#" class="posted-on "><?=substr($event['time'], 0, 5);?></a>
-            <a href="#" class="posted-cat">Tutorials</a>
-            <a href="#" class="posted-tag">0 Comments</a>
+         
             <a href="#" class="posted-more">Подробнее</a>
             </div>
             <p class="gallery-description left-text"><? $words=explode(" ",$event['description']); echo implode(" ",array_splice($words,0,50))?></p>

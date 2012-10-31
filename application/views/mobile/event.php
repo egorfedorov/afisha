@@ -14,11 +14,9 @@
                 </a>
                 <h3 class="gallery-title left-text"><?=$event['title']?></h3>
                 <div class="more_in">
-                    <a href="#" class="posted-by">Admin</a>
-                    <a href="#" class="posted-on">22 Dec 2012</a>
-                    <a href="#" class="posted-cat">Tutorials</a>
-                    <a href="#" class="posted-tag">0 Comments</a>
-                    <a href="#" class="posted-more">More</a>
+                    <a href="#" class="posted-by"><?=$event['category_name']?></a>
+					<a href="#" class="posted-on "><?=substr($event['time'], 0, 5);?></a>
+					<a href="#" class="posted-more">Подробнее</a>
                 </div>
                 <p class="gallery-description left-text"><?=$event['description']?></p>
 
