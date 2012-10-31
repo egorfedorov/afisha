@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes"/>
 
 
-    <title>Drohp | Mobile Template</title>
+    <title>Куда пойти в Черкассах</title>
     <link href="<?=base_url()?>public/mobile/style/style.css" rel="stylesheet" type="text/css">
     <link href="<?=base_url()?>public/mobile/style/slider.css" rel="stylesheet" type="text/css">
     <link href="<?=base_url()?>public/mobile/style/buttons.css" rel="stylesheet" type="text/css">
@@ -32,42 +32,42 @@
 <div class="header">
     <div class="navigation">
 
-        <p class="center-text">YOU ARE ON THE PORTFOLIO PAGE</p>
+        <p class="center-text">Все события Черкасс на одном сайте</p>
 
         <div class="nav-decoration"></div>
-        <a href="index.html" class="nav-item">
+        <a href="<?=base_url()?>mobile" class="nav-item">
             <img src="<?=base_url()?>public/mobile/images/icons/home@2x.png" width="50" alt="img"><br/>
             Главная
         </a>
-        <a href="features.html" class="nav-item">
+        <a href="<?=base_url()?>mobile/today" class="nav-item">
             <img src="<?=base_url()?>public/mobile/images/icons/cog2@2x.png" width="50" alt="img"><br/>
             На сегодня
         </a>
-        <a href="portfolio.html" class="nav-item">
+        <a href="<?=base_url()?>mobile/week" class="nav-item">
             <img src="<?=base_url()?>public/mobile/images/icons/img@2x.png" width="50" alt="img"><br/>
             На неделю
         </a>
-        <a href="gallery.html" class="nav-item">
+        <a href="<?=base_url()?>mobile/month" class="nav-item">
             <img src="<?=base_url()?>public/mobile/images/icons/img2@2x.png" width="50" alt="img"><br/>
             На месяц
         </a>
 
-        <a href="blog.html" class="nav-item">
+        <a href="<?=base_url()?>mobile/blog" class="nav-item">
             <img src="<?=base_url()?>public/mobile/images/icons/documents@2x.png" width="50" alt="img"><br/>
             Блог
         </a>
-        <a href="video.html" class="nav-item">
+        <a href="<?=base_url()?>mobile/about" class="nav-item">
             <img src="<?=base_url()?>public/mobile/images/icons/highdef2@2x.png" width="50" alt="img"><br/>
             О проекте
         </a>
-        <a href="tel:+123 456 789" class="nav-item">
+        <a href="<?=base_url()?>mobile/contact" class="nav-item">
             <img src="<?=base_url()?>public/mobile/images/icons/phone@2x.png" width="50" alt="img"><br/>
             Контакты
         </a>
-        <a href="contact.html" class="nav-item">
+        <!--a href="contact.html" class="nav-item">
             <img src="<?=base_url()?>public/mobile/images/icons/mail@2x.png" width="50" alt="img"><br/>
             Mail Us!
-        </a>
+        </a-->
 
         <div class="nav-decoration"></div>
 

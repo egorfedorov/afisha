@@ -54,7 +54,20 @@ class Mobile extends ControllerBase
         $this->data['content'] = 'mobile/events_month';
         $this->load->view('mobile/layout', $this->data);
     }
+    function blog()
+    {
+        $this->data['articles'] = $this->marticles->articles_list();
+        $images =  $this->mimages->events_list_img();
+        $this->data['articles_images'] = array();
+        foreach($images as $img){
+            $this->data['articles_images'][$img['item_id']] = $img;
+        }
 
+
+
+        $this->data['content'] = 'mobile/blog_list';
+        $this->load->view('mobile/layout', $this->data);
+    }
     function event($id)
     {
         $this->data['event'] = $this->mevents->event_info($id);
