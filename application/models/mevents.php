@@ -85,14 +85,18 @@ class Mevents extends CI_Model
 	}
 	function events_list_by_category($name)
 	{
-		$query = $this->db->query('SELECT events.*, owner.name FROM `events`JOIN `owner` ON `owner`.`id` = `events`.`id_owner`  WHERE category IN (SELECT id FROM category WHERE `alias` = "'.$name.'") ORDER BY time ASC');
+		$query = $this->db->query('SELECT events.*, owner.name FROM `events`JOIN `owner` ON `owner`.`id` = `events`.`id_owner`  WHERE category IN (SELECT id FROM category WHERE `alias` = "'.$name.'") AND (`events`.`realtime` > NOW() or every_day = 1 ) ORDER BY time ASC');
 		$result = $query->result_array();
 		return $result ? $result : false;
 	}
     function delete_events($data=array()){
         $this->db->delete('events', $data);
     }
-
+    function event_exists($id)
+	{
+		$this->db->where('id', $id);
+		return $this->db->count_all_results('events') > 0 ? true : false;
+	}
 
 }
 

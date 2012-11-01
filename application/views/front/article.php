@@ -48,10 +48,10 @@
                     	<div class="line"></div>
                     <div class="blog_info">
                     <ul>
-                        	<li>On <a href="#">22 Novemver, 2011</a></li>
-                            <li>posted by <a href="#">Admin</a></li>
-                            <li>in <a href="#">Web Design</a></li>
-                            <li><a href="#comments">5</a> comments</li>
+                        	<li>Дата: <a href="#"><?php russian_date(strtotime($article['pub_date']));?></a></li>
+                            <li>Автор: <a href="#">Админ</a></li>
+                            <!--li>in <a href="#">Web Design</a></li>
+                            <li><a href="#comments">5</a> comments</li-->
                         </ul>
                         </div>
                         <div class="line"></div>
@@ -60,17 +60,17 @@
                     	<p><?=$article['text_ru']?></p>
                          <div class="share_block_art">
             <div class="share_btn">
-                <a href="https://www.facebook.com/sharer.php?u=<?=$meta['link']?>" target="_blank">
+                <a href="https://www.facebook.com/sharer.php?u=<?=$meta['url']?>" target="_blank">
                     <img src="<?=base_url()?>public/img/fb.png" />
                 </a>
             </div>
             <div class="share_btn">
-                <a href="http://vkontakte.ru/share.php?url=<?=$meta['link']?>" target="_blank">
+                <a href="http://vkontakte.ru/share.php?url=<?=$meta['url']?>" target="_blank">
                     <img src="<?=base_url()?>public/img/vk.png" />
                 </a>
             </div>
             <div class="share_btn">
-                <a href="http://twitter.com/home?status=<?=$meta['description']?><?=$meta['link']?>"  title="Click to share this post on Twitter" target="_blank">
+                <a href="http://twitter.com/home?status=<?=$meta['url']?>"  title="Click to share this post on Twitter" target="_blank">
                     <img src="<?=base_url()?>public/img/tw.png" />
                 </a>
             </div>
@@ -91,3 +91,4 @@ VK.Widgets.Comments("vk_comments", {limit: 15, width: "670", attach: "*"});
 </script>
 
             </div> </div>
+  

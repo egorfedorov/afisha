@@ -19,10 +19,10 @@ class Contact extends ControllerBase
 	}
 	function submit()
 	{
-		print_r($_POST);
+	//	print_r($_POST);
 
-       $to      = 'tepalenko@webkate.com';
-       $subject = 'the subject';
+       $to      = 'tepalenko@gmail.com';
+       $subject = 'Freetime contact form';
 
        $headers = 'From: webmaster@example.com' . "\r\n" .
                    'Reply-To: webmaster@example.com' . "\r\n" .
@@ -36,7 +36,10 @@ class Contact extends ControllerBase
 		Site: '.$_POST['u_site'].'
 		Message: '.$_POST['u_comment'].'
 		';
+
 	   mail($to, $subject, $html, $headers);
+       echo $to.$subject.$html.$headers;
+       die;
         redirect('/contact');
 	}
 

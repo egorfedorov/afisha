@@ -134,7 +134,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                             <li><a href="portfolio_item.html">Portfolio item page</a></li>
                         </ul>
                     </li-->
-                    <li><a href="<?=base_url()?>/blog" <? if($menu_id == 'blog')echo 'class="active"';?> >Блог<span>статьи</span></a>
+                    <li><a href="<?=base_url()?>blog" <? if($menu_id == 'blog')echo 'class="active"';?> >Блог<span>статьи</span></a>
                         <!--ul>
                             <li><a href="blog1.html" class="active">blog style 1</a></li>
                             <li><a href="blog2.html">blog style 2</a></li>

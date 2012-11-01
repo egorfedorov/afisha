@@ -113,11 +113,10 @@ class Events extends CI_Controller
 	
 	function delete($id)
 	{
-		if ($this->marticles->article_exists($id))
+		if ($this->mevents->event_exists($id))
 		{
 			// Deletting
-			$this->marticles->delete_article($id);
-			$this->mcomment->delete_all_coments($id);
+			$this->mevents->delete_events(array('id'=>$id));
 			$this->data['msg']['type'] = 'succeed';
 			$this->data['msg']['text'] = 'Статья успешно удалена.';						
 		}
@@ -129,7 +128,7 @@ class Events extends CI_Controller
 		}						
 		
 		// Redirecting
-		$this->articles_list();
+		$this->events_list();
 	}
 	
 	function delete_video($id)

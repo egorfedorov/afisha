@@ -51,7 +51,7 @@ class Blog extends ControllerBase
         $this->data['tweets'] = $this->mtweet->tweets_list();
         $this->data['meta'] = array(
             'title' => 'Афиша на неделю',
-            'url' => base_url().'events/week',
+            'url' => base_url().'events/blog',
             'img' => base_url().'public/logo.jpg',
             'desc' => 'Все события города Черкассы на одном сайте'
         );
@@ -66,6 +66,12 @@ class Blog extends ControllerBase
 		if (!$this->data['article']) show_404();
         //$data = array('view' => 'view+1');
         $this->marticles->update_view($id);
+         $this->data['meta'] = array(
+            'title' => $this->data['article']['title_ru'],
+            'url' => base_url().'blog/get_article/'.$id,
+            'img' => base_url().$this->data['article_images'][0]['path'],
+            'desc' => $this->data['article']['text_ru']
+        );
 		$this->data['content'] = 'front/article';
         $this->load->view('front/layout', $this->data);
 	}
