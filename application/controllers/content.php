@@ -8,6 +8,7 @@ class Content extends ControllerBase
 		$this->load->model(array('mcontent', 'mmenu', 'mcategory'));
         $this->data['cat_left'] = $this->mcategory->categories_list();
         $this->data['menu_id'] = 'blog';
+        $this->data['rand_img'] = $this->mimages->random_img();
 	}		
 	
 	function index()

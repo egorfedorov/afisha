@@ -13,7 +13,7 @@
 	                    	<div class="date blog_date">
 	                        	<p>Nov <b>22</b></p>
 	                        </div>
-	                        <div class="blog_info">
+	                        <div class="blog_info blog_info2">
 	                        	<h3><a href="<?=base_url()?>blog/get_article/<?=$article['id']?>"><?=$article['title_ru']?></a></h3>
 	                            <ul>
 	                            	<li><i>Автор</i> <a href="#">Admin</a></li>

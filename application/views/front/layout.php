@@ -220,7 +220,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
         <p>Фото с мероприятия в Черкассах</p>
         <div class="latest_img see_big2">
             <div>
-                <a href="<?=base_url()?>public/img/big_img9.jpg" rel="prettyPhoto[gallery1]"><img src="<?=base_url()?>public/img/img_latest.jpg" title="" alt="" />
+                <a href="<?=$rand_img['path']?>" rel="prettyPhoto[gallery1]"><img src="<?=$rand_img['path']?>" title="" alt="" />
                     <span class="icon"></span></a>
             </div>
         </div>

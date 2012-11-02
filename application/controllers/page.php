@@ -5,11 +5,12 @@ class Page extends ControllerBase
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model(array('mpages', 'mmenu', 'marticles', 'mcategory', 'mtweet'));
+		$this->load->model(array('mpages', 'mmenu', 'marticles', 'mcategory', 'mtweet', 'mimages    '));
         $this->data['cat_left'] = $this->mcategory->categories_list();
         $this->data['last_news'] =  $this->marticles->articles_list_last(5);
         $this->data['menu_id'] = 'about';
         $this->data['tweets'] = $this->mtweet->tweets_list();
+        $this->data['rand_img'] = $this->mimages->random_img();
 	}		
 	
 	function get_page($name)

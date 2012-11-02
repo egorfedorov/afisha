@@ -20,11 +20,19 @@ class Mimages extends CI_Model
 	}
     function event_img($id)
     {
-
         $this->db->where("item_id", $id);
         $query = $this->db->get('images');
         $result = $query->result_array();
         return $result ? $result : false;
+    }
+    function random_img()
+    {
+
+        $this->db->order_by("id", "random");
+        $query = $this->db->get('images');
+        $result = $query->row_array();
+        // echo  $this->db->last_query();die;
+		return $result ? $result : false;
     }
     function set_img($data)
     {

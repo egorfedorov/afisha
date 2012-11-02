@@ -10,6 +10,8 @@ class Blog extends ControllerBase
         $this->data['cat_left'] = $this->mcategory->categories_list();
         $this->data['menu_id'] = 'blog';
         $this->data['tweets'] = $this->mtweet->tweets_list();
+        $this->data['rand_img'] = $this->mimages->random_img();
+
         $this->data['meta'] = array(
             'title' => 'Афиша на неделю',
             'url' => base_url().'events/week',

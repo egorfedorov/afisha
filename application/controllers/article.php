@@ -8,6 +8,7 @@ class Article extends ControllerBase
 		$this->load->model(array('marticles', 'mmenu', 'mcategory'));
         $this->data['cat_left'] = $this->mcategory->categories_list();
         $this->data['menu_id'] = 'blog';
+        $this->data['rand_img'] = $this->mimages->random_img();
 	}		
 	
 	function index()
