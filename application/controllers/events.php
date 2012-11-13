@@ -106,7 +106,6 @@ class Events extends ControllerBase
     function category($name = 'cinema')
     {
         $this->data['events'] = $this->mevents->events_list_by_category($name);
-        //print_r($this->data['events']);die;
         if (!$this->data['events']) show_404();
         $this->data['meta'] = array(
             'title' => 'Афиша на месяц',

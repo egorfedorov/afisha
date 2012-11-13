@@ -62,10 +62,16 @@ class Mobile extends ControllerBase
         foreach($images as $img){
             $this->data['articles_images'][$img['item_id']] = $img;
         }
-
-
-
         $this->data['content'] = 'mobile/blog_list';
+        $this->load->view('mobile/layout', $this->data);
+    }
+    function get_article($id)
+    {
+        $this->data['article'] = $this->marticles->article_info($id);
+        $this->data['article_images'] = $this->mimages->event_img($this->data['article']['id']);
+        if (!$this->data['article']) show_404();
+
+        $this->data['content'] = 'mobile/article';
         $this->load->view('mobile/layout', $this->data);
     }
     function event($id)
@@ -108,16 +114,7 @@ class Mobile extends ControllerBase
 		$this->data['content'] = 'front/articles_list';
         $this->load->view('front/layout', $this->data);
 	}
-	function get_article($id)
-	{
-		$this->data['article'] = $this->marticles->article_info($id, true);
-		if (!$this->data['article']) show_404();
-        //$data = array('view' => 'view+1');
-        $this->marticles->update_view($id);
-		$this->data['main_menu'] = $this->mmenu->menu_items(array('status' => '1'), true);				
-		$this->data['content'] = 'front/article';				
-        $this->load->view('front/layout', $this->data);
-	}
+
 
 }
 

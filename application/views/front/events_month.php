@@ -37,7 +37,9 @@
                             <span class="icon"></span></a>
                     </div>
                 </div>
-                <div class="title_filter"><a href="<?=base_url().'events/event/'.$event['id']?>"> <?=$event['title']?></a></div>
+                <div class="title_filter"><a href="<?=base_url().'events/event/'.$event['id']?>"> <?=$event['title']?></a>
+                    <span class="filt_date"><?php russian_date(strtotime($event['date']));?></span><span class="filt_time"><?=substr($event['time'], 0, 5);?></span>
+                </div>
 
 
             </li>
