@@ -9,16 +9,19 @@ class Main extends ControllerBase  {
         $this->data['cat_left'] = $this->mcategory->categories_list();
         $this->data['menu_id'] = 0;
         $this->data['menu_id'] = 'main';
+
     }
 
 	public function index()
 	{
+
         $this->data['last_news'] =  $this->marticles->articles_list_last(4);
         $this->data['images'] = $this->mslider->slider_list();
         $this->data['content'] = 'front/main';
 
      //   print_r($this->data['tweets']);die;
-        $this->load->view('front/main', $this->data);
+       $this->load->view('front/main', $this->data);
+        //echo 'asdf';die;
 	}
 
 
