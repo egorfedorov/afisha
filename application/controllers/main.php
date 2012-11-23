@@ -5,6 +5,9 @@ class Main extends ControllerBase  {
     function __construct()
     {
         parent::__construct();
+        if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), 'mobile') || strstr(strtolower($_SERVER['HTTP_USER_AGENT']), 'android')) {
+            redirect('mobile');
+        }
         $this->load->model(array('mconfig', 'mpages', 'mslider', 'marticles', 'mcategory', 'mtweet'));
         $this->data['cat_left'] = $this->mcategory->categories_list();
         $this->data['menu_id'] = 0;
