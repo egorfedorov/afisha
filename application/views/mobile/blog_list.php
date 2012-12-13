@@ -1,6 +1,6 @@
 <div class="container">
-    <h3 class="left-text">Расписание на сегодня </h3>
-    <p class="left-text">Все события</p>
+    <h3 class="left-text">Только интересные новости</h3>
+    <p class="left-text"></p>
 </div>
 
 <div class="decoration"></div>
@@ -21,7 +21,7 @@
             <a href="#" class="posted-more">Подробнее</a>
             </div>
             <p class="gallery-description left-text"><?=$article['anons_ru']?></p>
-            <a href="<?=base_url()?>mobile/event/<?=$article['id']?>" class="button grey"> Подробнее</a>
+            <a href="<?=base_url()?>mobile/get_article/<?=$article['id']?>" class="button grey"> Подробнее</a>
             <div style="clear: both;"></div>
         </div>
         <div class="decoration">

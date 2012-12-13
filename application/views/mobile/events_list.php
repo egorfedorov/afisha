@@ -18,7 +18,7 @@
             <a href="#" class="posted-by"><?=$event['category_name']?></a>
             <a href="#" class="posted-on "><?=substr($event['time'], 0, 5);?></a>
          
-            <a href="#" class="posted-more">Подробнее</a>
+            <a href="#" class="posted-more"><?=$event['name']?></a>
             </div>
             <p class="gallery-description left-text"><? $words=explode(" ",$event['description']); echo implode(" ",array_splice($words,0,50))?></p>
             <a href="<?=base_url()?>mobile/event/<?=$event['id']?>" class="button grey"> Подробнее</a>

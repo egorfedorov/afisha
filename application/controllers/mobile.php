@@ -20,6 +20,16 @@ class Mobile extends ControllerBase
         $this->data['content'] = 'mobile/events_list';
         $this->load->view('mobile/layout', $this->data);
 	}
+    function about()
+    {
+        $this->data['content'] = 'mobile/about';
+        $this->load->view('mobile/layout', $this->data);
+    }
+    function contact()
+    {
+        $this->data['content'] = 'mobile/contact';
+        $this->load->view('mobile/layout', $this->data);
+    }
     function today()
     {
         $this->data['events'] = $this->mevents->events_list(null, null,'time', 'ASC',date("H:i:s"));

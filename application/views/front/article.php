@@ -48,7 +48,7 @@
                     	<div class="line"></div>
                     <div class="blog_info">
                     <ul>
-                        	<li>Дата: <a href="#"><?php russian_date(strtotime($article['pub_date']));?></a></li>
+                        	<li>Дата: <a href="#"> <?php russian_date(strtotime($article['pub_date'])); ?> </a></li>
                             <li>Автор: <a href="#">Админ</a></li>
                             <!--li>in <a href="#">Web Design</a></li>
                             <li><a href="#comments">5</a> comments</li-->
