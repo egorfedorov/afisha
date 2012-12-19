@@ -9,6 +9,7 @@ class Events extends ControllerBase
 		$this->load->model(array('mevents', 'mmenu', 'mimages', 'marticles', 'mcategory', 'mtweet'));
         $this->data['last_news'] =  $this->marticles->articles_list_last(5);
         $this->data['cat_left'] = $this->mcategory->categories_list();
+
         $this->data['tweets'] = $this->mtweet->tweets_list();
        $this->data['menu_id'] = 'events';
         $this->data['rand_img'] = $this->mimages->random_img();

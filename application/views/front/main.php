@@ -29,9 +29,11 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
     <meta property="og:site_name" content="freetime "/>
     <meta property="og:description"
           content="Список мест куда можно пойти в Черкассах. Кинотеатры, музеи, выставки"/>
+    <META HTTP-EQUIV="Pragma" CONTENT="private">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="private, max-age=5400, pre-check=5400">
+    <META HTTP-EQUIV="Expires" CONTENT="<?php echo date(DATE_RFC822,strtotime("7 day")); ?>">
 
-
-
+    <link rel="icon" href="<?=base_url()?>public/img/favicon.png" type="ico">
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css' />
@@ -39,6 +41,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
 
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/style.css" />
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/prettyPhoto.css" />
+    <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/my_slider_style.css" />
     <script type="text/javascript" src="<?=base_url()?>public/js/jquery.min.js"></script>
     <script type="text/javascript" src="<?=base_url()?>public/js/jquery.prettyPhoto.js"></script>
     <script type="text/javascript" src="<?=base_url()?>public/js/jquery.inputstext.js"></script>
@@ -47,8 +50,9 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
     <script type="text/javascript" src="<?=base_url()?>public/js/slider3.js"></script>
     <script type="text/javascript" src="<?=base_url()?>public/js/comm_input_bg.js"></script>
     <script type="text/javascript" src="<?=base_url()?>public/js/post_type2_slider.js"></script>
-
-
+    <script type="text/javascript" src="<?=base_url()?>public/js/jquery.easing.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>public/js/my_slider.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>public/js/about_tabs.js"></script>
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/jquery.ad-gallery.css" />
 
 
@@ -88,6 +92,9 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
         <div class="block_mid">
             <div id="logo">
                 <a href="<?=base_url()?>"><img src="<?base_url()?>public/img/logo.jpg" alt="ElephantWeb" title="ElephantWeb" /></a>
+            </div>
+            <div class="logo_text">
+                <span> «FreeTime»</span> - для людей, которые чувствую вкус жизни и знают толк свободному времени!
             </div>
             <div id="menu">
                 <ul>
@@ -163,7 +170,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
 </div>
 <div id="content">
     <div class="inner">
-        <div class="ad-gallery">
+        <!--div class="ad-gallery">
             <div class="ad-image-wrapper">
                 <div id="ad-image-description"></div>
             </div>
@@ -181,13 +188,167 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                     </ul>
                 </div>
             </div>
+        </div-->
+        <div id="my_slider">
+            <? foreach($images as $image):?>
+            <a href="<?=base_url().$image['thumb']?>"><img src="<?=base_url().$image['path']?>" alt="London Tower Squere" title="Photography" /></a>
+            <!--li>
+                <a href="<?=base_url().$image['path']?>">
+                    <img src="<?=base_url().$image['thumb']?>" alt="<?=$image['name']?>" longdesc="<?=$image['link']?>" />
+                </a>
+            </li-->
+            <? endforeach;?>
+
         </div>
         <div class="line"></div>
-        <div class="block_slogan">
-            <p>
-                <span> «FreeTime»</span> - для людей, которые чувствую вкус жизни и знают толк свободному времени!
-            </p>
+        <div class="block_resent">
+            <h2>События Черкасс</h2>
+            <div class="images">
+                <div class="img_box shadow_img see_big">
+                    <div>
+                        <div class="description">
+                            <p class="alt">Список событий на</p>
+                            <p class="title"><a href="#">СЕГОДНЯ</a></p>
+                        </div>
+                        <div class="link_big"><a href="<?=base_url()?>public/img/big_img14.jpg" >Подробнее</a></div>
+                        <img src="<?=base_url()?>public/img/img_home_min1.jpg" title="" alt=""  />
+                    </div>
+                </div>
 
+                <div class="img_box shadow_img see_big">
+                    <div>
+                        <div class="description">
+                            <p class="alt">Список событий</p>
+                            <p class="title"><a href="#">Завтра</a></p>
+                        </div>
+                        <div class="link_big"><a href="<?=base_url()?>public/img/big_img9.jpg" rel="prettyPhoto[gallery1]"></a></div>
+                        <img src="<?=base_url()?>public/img/img_home_min2.jpg" title="" alt=""  />
+                    </div>
+                </div>
+                <div class="img_box shadow_img see_big">
+                    <div>
+                        <div class="description">
+                            <p class="alt">Список событий</p>
+                            <p class="title"><a href="#">На неделю</a></p>
+                        </div>
+                        <div class="link_big"><a href="<?=base_url()?>public/img/big_img12.jpg" rel="prettyPhoto[gallery1]"></a></div>
+                        <img src="<?=base_url()?>public/img/img_home_min3.jpg" title="" alt=""  />
+                    </div>
+                </div>
+                <div class="img_box shadow_img see_big">
+                    <div>
+                        <div class="description">
+                            <p class="alt">Список событий</p>
+                            <p class="title"><a href="#">На месяц</a></p>
+                        </div>
+                        <div class="link_big"><a href="<?=base_url()?>public/img/big_img13.jpg" rel="prettyPhoto[gallery1]"></a></div>
+                        <img src="<?=base_url()?>public/img/img_home_min4.jpg" title="" alt=""  />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="block_tabs">
+            <div class="tabs_buttons">
+                <ul>
+                    <li><a href="#1" class="active">19 января</a></li>
+                    <li><a href="#2">20 января</a></li>
+                    <li><a href="#3">21 января</a></li>
+                    <li><a href="#4">22 января</a></li>
+                </ul>
+            </div>
+            <div class="tab_cont active">
+                <div class="icon icon_photo"></div>
+                <div class="content">
+                    <p>Established fact reader will be <a href="#" class="main_link">distracted by the readable</a> content of a page when. Looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search.</p>
+                    <div class="tab_cols">
+                        <div class="tab_col">
+                            <ul class="list">
+                                <li><a href="#">Fact reader will be distracted.</a></li>
+                                <li><a href="#">Content of a page when.</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab_col">
+                            <ul class="list">
+                                <li><a href="#">Normal distribution of letters.</a></li>
+                                <li><a href="#">Opposed to using content here.</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab_cont">
+                <div class="icon icon_develop"></div>
+                <div class="content">
+                    <p>Fact reader will be distracted by the <a href="#" class="main_link">readable content</a> of a page when. Looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using content here, content here, making it look like readable English will uncover many web sites still in their infancy. Various versions have evolved over. There are many variations of passages of Lorem Ipsum available, but the majority.</p>
+                    <div class="tab_cols">
+                        <div class="tab_col">
+                            <ul class="list">
+                                <li><a href="#">Fact reader will be distracted.</a></li>
+                                <li><a href="#">Content of a page when.</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab_col">
+                            <ul class="list">
+                                <li><a href="#">Normal distribution of letters.</a></li>
+                                <li><a href="#">Opposed to using content here.</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tab_cont">
+                <div class="icon icon_program"></div>
+                <div class="content">
+                    <p>Distracted by the  readable content  of a page when. Looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using content here, content here, making it look like readable English will uncover many web sites still in their infancy. Various versions have  evolved over.  There are many variations of passages of Lorem Ipsum available.</p>
+                    <div class="tab_cols">
+                        <div class="tab_col">
+                            <ul class="list">
+                                <li><a href="#">Reader will be distracted.</a></li>
+                                <li><a href="#">Content of a page when.</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab_col">
+                            <ul class="list">
+                                <li><a href="#">Normal distribution of letters.</a></li>
+                                <li><a href="#">Opposed to using content here.</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab_col">
+                            <ul class="list">
+                                <li><a href="#">Normal distribution of letters.</a></li>
+                                <li><a href="#">Opposed to using content here.</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab_cont">
+                <div class="icon icon_comments"></div>
+                <div class="content">
+                    <p>Readable content  of a page when. Looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to <a href="#" class="main_link">using content here</a>, content here, making it look like readable English will uncover many web sites still in their infancy. Various versions have  evolved over.  There are many variations of passages of Lorem Ipsum available but the majority.</p>
+                    <div class="tab_cols">
+                        <div class="tab_col">
+                            <ul class="list">
+                                <li><a href="#">many variations of passages</a></li>
+                                <li><a href="#">Content of a page when.</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab_col">
+                            <ul class="list">
+                                <li><a href="#">Normal distribution of letters.</a></li>
+                                <li><a href="#">Opposed to using content here.</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab_col">
+                            <ul class="list">
+                                <li><a href="#">Normal distribution of letters.</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="latest-blogs" class="latest_block">
 
@@ -252,7 +413,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                 </div>
                 <div class="text">
                     <p><a href="<?base_url()?>blog/get_article/<?=$news['id']?>"><?=$news['title_ru']?></a></p>
-                    <p class="date"><?=date("F j, Y",strtotime($news['pub_date']))?> </p>
+                    <p class="date"><?= russian_date(strtotime($news['pub_date']));?> </p>
                 </div>
             </div>
             <? endforeach; ?>
@@ -283,3 +444,23 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
 </body>
 
 </html>
+<?
+function russian_date($time){
+    $date=explode(".", date("d.m.Y", $time));
+    switch ($date[1]){
+        case 1: $m='января'; break;
+        case 2: $m='февраля'; break;
+        case 3: $m='марта'; break;
+        case 4: $m='апреля'; break;
+        case 5: $m='мая'; break;
+        case 6: $m='июня'; break;
+        case 7: $m='июля'; break;
+        case 8: $m='августа'; break;
+        case 9: $m='сентября'; break;
+        case 10: $m='октября'; break;
+        case 11: $m='ноября'; break;
+        case 12: $m='декабря'; break;
+    }
+    echo $date[0].'&nbsp;'.$m.'&nbsp;'.$date[2];
+}
+?>

@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="title_filter">
-                <a href="<?=base_url().'events/event/'.$event['id']?>"> <?=$event['title']?></a>
+                <a href="<?=base_url().'events/event/'.$event['id']?>"> <?=mb_substr($event['title'], 0, 50)?></a>
                 <span class="filt_date"><?php russian_date(strtotime($event['date']));?></span><span class="filt_time"><?=substr($event['time'], 0, 5);?></span>
             </div>
 

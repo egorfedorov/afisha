@@ -31,6 +31,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
 
 
 
+    <link rel="icon" href="<?=base_url()?>public/img/favicon.png" type="ico">
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css' />
@@ -86,6 +87,9 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
         <div class="block_mid">
             <div id="logo">
                 <a href="<?=base_url()?>"><img src="<?=base_url()?>public/img/logo.jpg" alt="ElephantWeb" title="ElephantWeb" /></a>
+            </div>
+            <div class="logo_text">
+                <span> «FreeTime»</span> - для людей, которые чувствую вкус жизни и знают толк свободному времени!
             </div>
             <div id="menu">
                <ul>
@@ -172,7 +176,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
         </ul>
     </div>
 </div-->
-<div class="line"></div>
+
 
     <?=$this->load->view($content)?>
 <div class="block_cont_right">
@@ -186,9 +190,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
             </div>
         </form>
     </div-->
-    <div class="line"></div>
 
-    <div class="line"></div>
     <div class="block_blog_category">
         <h4>категории</h4>
         <ul class="list2">

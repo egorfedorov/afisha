@@ -553,10 +553,12 @@ body.stretched #wrapper { width:100%; min-width:982px; background: #FFFFFF url(.
 	#header .block_social_top a.rss{ background-position: -44px 0;}
 	#header .block_social_top a.rss:hover { background-position: -44px -18px;}
 	#header .block_social_top p { float:left; font: italic 10px/18px 'Droid Serif', serif; color:#aaaaaa; margin:1px 4px 0 0;}
-	#header .block_mid { padding: 22px 0; height:51px; overflow:visible;}
-	#header .block_mid #logo { float:left; height:51px; overflow:hidden; margin-top:-1px;}
-	#header .block_mid #logo a { display:block; width:163px; height:51px; background:url(../img/logo.jpg) no-repeat left top; text-indent:9000px;}
-	#header .block_mid #logo a:hover { background-position: left bottom }
+	#header .block_mid { padding: 22px 0; height:60px; overflow:visible;}
+	#header .block_mid #logo { float:left; height:60px; overflow:hidden; margin-top:-1px;}
+	#header .block_mid #logo a { display:block; width:62px; height:60px; background:url(../img/logo.png) no-repeat left top; text-indent:9000px;}
+	#header .block_mid #logo a:hover {/* background-position: left bottom*/      }
+    #header .logo_text{width: 330px;float: left; color: #8E8E8E;font: 12px/17px Arial,Helvetica,sans-serif;text-align: justify; padding: 0 10px;}
+    #header .logo_text span{color: #D42D17;}
 		#menu { float:right; overflow:visible;}
 		#menu>ul { display:block; border-left: solid 1px #f2f2f2; height:56px;}
 		#menu>ul>li { float:left; background:none; padding:0px; margin:5px 0 5px 37px; position:relative; height:46px;}
@@ -684,10 +686,10 @@ body.stretched #wrapper { width:100%; min-width:982px; background: #FFFFFF url(.
 	.see_big .description { width:100%; height:53px; position:absolute; top:0px; background:url(../img/shadow_for_img.png); display:none;}
 	.see_big .description .alt{ font:normal 11px/14px Arial, Helvetica, sans-serif; color:#6b6b6b; margin:10px 0 0 10px;}
 	.see_big .description .title { font: bold 12px/18px Arial, Helvetica, sans-serif; color:#2a2f30; margin:2px 0 0 10px;}
-	.see_big .description .title a { font: bold 12px/18px Arial, Helvetica, sans-serif; color:#2a2f30;}
+	.see_big .description .title a { font: bold 18px/18px Arial, Helvetica, sans-serif; color:#2a2f30;}
 	.see_big .description .title a:hover { color:#d42d17}
 	.see_big .link_big { width:100%; height:26px; position:absolute; bottom:0px; background:url(../img/shadow_for_img.png); display:none;}
-	.see_big .link_big a { display:block; width: 19px; height: 19px; background: url(../img/img_see_big2.png) no-repeat left top; margin: 4px 0 0 6px;}
+	.see_big .link_big a { display:block; width: 68px; padding: 2px 0 0 9px; color: #fff;font-size: 10px; height: 17px; background: url(../img/img_see_big2.png) no-repeat left top; margin: 4px 0 0 6px;}
 	.see_big .link_big a:hover { background-position: left bottom;}
 	
 	#content .block_featured { padding:30px 0 18px; }
@@ -771,7 +773,7 @@ body.stretched #wrapper { width:100%; min-width:982px; background: #FFFFFF url(.
 		-khtml-opacity: 0;
 		opacity: 0;
 	}
-	#content .block_last_work .latest_img .icon { display:block; width:25px; height:25px; background:url(../img/see_big_img.png) no-repeat; overflow:hidden; position:absolute; left:50%; top:50%; margin:-13px 0 0 -13px;}
+	#content .block_last_work .latest_img .icon,  .latest_img .icon{ display:block; width:25px; height:25px; background:url(../img/see_big_img.png) no-repeat; overflow:hidden; position:absolute; left:50%; top:50%; margin:-13px 0 0 -13px;}
 	#content .block_last_work .latest_img .icon.video { background:url(../img/see_big_video.png) no-repeat;}
 	#content .block_last_work .latest_img .icon:hover { background-position: 0 -25px;}
 	
@@ -1511,7 +1513,7 @@ li {
     overflow: hidden;
 }
 .title_filter{
-    height: 30px;
+    height: 60px;
 }
 .image_month{
     width: 170px;
@@ -1526,7 +1528,18 @@ li {
     text-align:center;
     display: block;
 }
-.title_filter a { font: bold 11px/14px 'Open Sans', sans-serif; color:#6b6b6b;}
+.title_filter a { font: bold 11px/14px 'Open Sans', sans-serif; color:#6b6b6b; height: 28px; display: block;}
+.title_filter .filt_date{
+    font: 12px;
+    color: #D42D17;
+    font-style: italic;
+}
+.title_filter .filt_time{
+    font: 14px;
+    color: #D42D17;
+    font-style: italic;
+    padding-left: 55px;
+}
 .title_filter a:hover { color:#d42d17;}
 .container-frame{
     margin-top: 20px;

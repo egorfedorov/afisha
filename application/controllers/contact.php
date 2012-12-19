@@ -38,8 +38,14 @@ class Contact extends ControllerBase
 		Message: '.$_POST['u_comment'].'
 		';
 
-	   mail($to, $subject, $html, $headers);
-       echo $to.$subject.$html.$headers;
+
+        if (mail($to, $subject, $html, $headers)) {
+            echo("Message successfully sent");
+        } else {
+            echo("Message sending failed");
+        }
+	  // mail($to, $subject, $html, $headers);
+       echo $to.'###'.$subject.'###'.$html.'###'.$headers;
        die;
         redirect('/contact');
 	}

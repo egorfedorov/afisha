@@ -11,5 +11,9 @@
 
 <IfModule !mod_rewrite.c>
     ErrorDocument 404 /index.php
-</IfModule> 
+</IfModule>
+<filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+Header set Cache-Control "public"
+Header set Expires "Thu, 15 Apr 2013 20:00:00 GMT"
+</filesMatch>
 AddDefaultCharset UTF-8
