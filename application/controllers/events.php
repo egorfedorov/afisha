@@ -47,6 +47,7 @@ class Events extends ControllerBase
     function week()
     {
         $this->data['events'] = $this->mevents->events_week();
+        $this->data['hide_right_block'] = true;
 
         $cat = array();
         if($this->data['events']){
@@ -68,7 +69,7 @@ class Events extends ControllerBase
     function month()
     {
         $this->data['events'] = $this->mevents->events_month();
-
+        $this->data['hide_right_block'] = true;
         $cat = array();
         if($this->data['events']){
         foreach($this->data['events'] as $event){
@@ -104,6 +105,11 @@ class Events extends ControllerBase
         $this->data['content'] = 'front/event';
         $this->load->view('front/layout', $this->data);
     }
+    public function mobile_page()
+    {
+        $this->data['content'] = 'front/mobile_page';
+        $this->load->view('front/layout', $this->data);
+    }
     function category($name = 'cinema')
     {
         $this->data['events'] = $this->mevents->events_list_by_category($name);
@@ -135,6 +141,8 @@ class Events extends ControllerBase
         $this->data['content'] = 'front/articles_list';
         $this->load->view('front/layout', $this->data);
     }
+
+
     function get_article($id)
     {
         $this->data['article'] = $this->marticles->article_info($id, true);

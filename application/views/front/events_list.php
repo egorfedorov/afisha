@@ -15,7 +15,7 @@
                 </ul>
             </div>
         </div>
-        <div class="post_pic shadow_img">
+        <div class="post_pic ">
             <div>
                 <a href="<?=base_url().'events/event/'.$event['id']?>"><img src="<?=$event['main_img']?>" alt="" title="" /></a>
             </div>

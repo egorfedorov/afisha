@@ -73,10 +73,10 @@
     <!--Primary Navigation-->
     <nav id="primary_nav">
         <ul>
-            <li class="nav_dashboard active"><a href="./index.html">События</a></li>
+            <li class="nav_dashboard <? if($menu_section == 'main')echo ' active';?>"><a href="/admin">События</a></li>
             <li class="nav_graphs"><a href="./charts.html">Блог</a></li>
-            <!--li class="nav_forms"><a href="./forms.html">Новости</a></li>
-            <li class="nav_typography"><a href="./typography.html">Страницы</a></li>
+            <li class="nav_forms <? if($menu_section == 'import')echo ' active';?>"><a href="<?=base_url()?>admin/import">Импорт</a></li>
+            <!--li class="nav_typography"><a href="./typography.html">Страницы</a></li>
             <li class="nav_uielements"><a href="./ui_elements.html">Настройки</a></li>
             <li class="nav_pages"><a href="./pages.html">Pages</a></li-->
         </ul>
@@ -96,6 +96,16 @@
     </dd>
 </dl>
 <h2>Разделы</h2>
+    <? if($menu_section == 'import'){?>
+    <ul>
+        <li><a href="<?=base_url()?>admin/events"><span class="iconsweet">C</span>Группа Афиша Черкассі</a></li>
+        <li><a href="<?=base_url()?>admin/articles"><span class="iconsweet">}</span>Список статей блога</a></li>
+        <li><a href="<?=base_url()?>admin/promo"><span class="iconsweet">R</span>Акции</a></li>
+        <li><a href="<?=base_url()?>admin/slider"><span class="iconsweet">S</span>Слайдер</a></li>
+        <li><a href="<?=base_url()?>admin/categories/add"><span class="iconsweet">S</span>Категории</a></li>
+        <li><a href="<?=base_url()?>admin/owner/add"><span class="iconsweet">S</span>Место проведения</a></li>
+    </ul>
+        <? }else{?>
 <ul>
 	<li><a href="<?=base_url()?>admin/events"><span class="iconsweet">C</span>Список событий</a></li>
     <li><a href="<?=base_url()?>admin/articles"><span class="iconsweet">}</span>Список статей блога</a></li>
@@ -104,6 +114,7 @@
     <li><a href="<?=base_url()?>admin/categories/add"><span class="iconsweet">S</span>Категории</a></li>
     <li><a href="<?=base_url()?>admin/owner/add"><span class="iconsweet">S</span>Место проведения</a></li>
 </ul>
+    <? }?>
 </nav>
 <!--Content Wrap-->
 <div id="content_wrap">	<!--Activity Stats-->

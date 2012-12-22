@@ -77,7 +77,7 @@
                 </li>
                 <li>
                     <label class="label notice">Содержание</label>
-                    <textarea  id="wyswig" name="description"><?=$event['description']?></textarea>
+                    <textarea  id="wyswig" name="description"><?= $event['description']?></textarea>
                    
                 </li>
                 <li>

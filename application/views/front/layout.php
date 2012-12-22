@@ -36,7 +36,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:700' rel='stylesheet' type='text/css' />
-
+    <link href='http://fonts.googleapis.com/css?family=Andika|Didact+Gothic|Jura:400,500,600,300&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/style.css" />
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/prettyPhoto.css" />
 
@@ -48,9 +48,11 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
     <script type="text/javascript" src="<?=base_url()?>public/js/post_type2_slider.js"></script>
     <script type="text/javascript" src="<?=base_url()?>public/js/custom.quicksand.js"></script>
     <script type="text/javascript" src="<?=base_url()?>public/js/jquery.quicksand.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>public/js/jquery.easing.js"></script>
     <script type="text/javascript" src="<?=base_url()?>public/js/slider3.js"></script>
     <script type="text/javascript" src="<?=base_url()?>public/js/jquery.ad-gallery.js"></script>
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/jquery.ad-gallery.css" />
+    <script type="text/javascript" src="<?=base_url()?>public/js/quicksand2.js"></script>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -179,6 +181,7 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
 
 
     <?=$this->load->view($content)?>
+  <? if(!isset($hide_right_block)):?>
 <div class="block_cont_right">
     <!--div class="search_block">
         <form action="#">
@@ -242,7 +245,8 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
         </ul>
     </div-->
 </div>
-<div class="clear"></div>
+    <? endif;?>
+    <div class="clear"></div>
 <div class="block_other">
     <div class="block_blog">
         <h4>Последние статьи</h4>
@@ -328,6 +332,24 @@ case 11: $m='ноября'; break;
 case 12: $m='декабря'; break;
 }
 echo $date[0].'&nbsp;'.$m.'&nbsp;'.$date[2];
+}
+function russian_datem($time){
+    $date=explode(".", date("d.m", $time));
+    switch ($date[1]){
+        case 1: $m='января'; break;
+        case 2: $m='февраля'; break;
+        case 3: $m='марта'; break;
+        case 4: $m='апреля'; break;
+        case 5: $m='мая'; break;
+        case 6: $m='июня'; break;
+        case 7: $m='июля'; break;
+        case 8: $m='августа'; break;
+        case 9: $m='сентября'; break;
+        case 10: $m='октября'; break;
+        case 11: $m='ноября'; break;
+        case 12: $m='декабря'; break;
+    }
+    echo $date[0].'&nbsp;'.$m.'&nbsp;'.$date[2];
 }
     ?>
 </body>

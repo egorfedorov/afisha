@@ -122,7 +122,10 @@ $(document).ready(function() {
         //go to the url
         window.location = $(this).find('a').attr('href');
     });
-
+    $(".see_big").click(function() {
+        window.location = $(this).find('a').attr('href');
+       // alert($(this).find('a').attr('href'));
+    });
 
 });
 function see_big2(){

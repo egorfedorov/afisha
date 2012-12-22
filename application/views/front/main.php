@@ -208,9 +208,9 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                     <div>
                         <div class="description">
                             <p class="alt">Список событий на</p>
-                            <p class="title"><a href="#">СЕГОДНЯ</a></p>
+                            <p class="title"><a href="<?=base_url()?>events/today">СЕГОДНЯ</a></p>
                         </div>
-                        <div class="link_big"><a href="<?=base_url()?>public/img/big_img14.jpg" >Подробнее</a></div>
+                        <div class="link_big"><a href="<?=base_url()?>events/today" >Подробнее</a></div>
                         <img src="<?=base_url()?>public/img/img_home_min1.jpg" title="" alt=""  />
                     </div>
                 </div>
@@ -219,19 +219,19 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                     <div>
                         <div class="description">
                             <p class="alt">Список событий</p>
-                            <p class="title"><a href="#">Завтра</a></p>
+                            <p class="title"><a href="<?=base_url()?>events/today">Завтра</a></p>
                         </div>
-                        <div class="link_big"><a href="<?=base_url()?>public/img/big_img9.jpg" rel="prettyPhoto[gallery1]"></a></div>
-                        <img src="<?=base_url()?>public/img/img_home_min2.jpg" title="" alt=""  />
+                        <div class="link_big"><a href="<?=base_url()?>events/today" >Подробнее</a></div>
+                        <a href="<?=base_url()?>events/today"> <img src="<?=base_url()?>public/img/img_home_min2.jpg" title="" alt=""  /></a>
                     </div>
                 </div>
                 <div class="img_box shadow_img see_big">
                     <div>
                         <div class="description">
                             <p class="alt">Список событий</p>
-                            <p class="title"><a href="#">На неделю</a></p>
+                            <p class="title"><a href="<?=base_url()?>events/week">На неделю</a></p>
                         </div>
-                        <div class="link_big"><a href="<?=base_url()?>public/img/big_img12.jpg" rel="prettyPhoto[gallery1]"></a></div>
+                        <div class="link_big"><a href="<?=base_url()?>events/week" >Подробнее</a></div>
                         <img src="<?=base_url()?>public/img/img_home_min3.jpg" title="" alt=""  />
                     </div>
                 </div>
@@ -239,9 +239,9 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
                     <div>
                         <div class="description">
                             <p class="alt">Список событий</p>
-                            <p class="title"><a href="#">На месяц</a></p>
+                            <p class="title"><a href="<?=base_url()?>events/month">На месяц</a></p>
                         </div>
-                        <div class="link_big"><a href="<?=base_url()?>public/img/big_img13.jpg" rel="prettyPhoto[gallery1]"></a></div>
+                        <div class="link_big"><a href="<?=base_url()?>events/month" >Подробнее</a></div>
                         <img src="<?=base_url()?>public/img/img_home_min4.jpg" title="" alt=""  />
                     </div>
                 </div>
@@ -251,156 +251,33 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
         <div class="block_tabs">
             <div class="tabs_buttons">
                 <ul>
-                    <li><a href="#1" class="active">19 января</a></li>
-                    <li><a href="#2">20 января</a></li>
-                    <li><a href="#3">21 января</a></li>
-                    <li><a href="#4">22 января</a></li>
+                    <? $i = 0;?>
+                    <? foreach($events as $date => $info):?>
+                    <li><a href="#1" <?if($i == 0)echo 'class="active"';?>><?= russian_datem($date);?></a></li>
+                   <? $i++;?>
+                    <? endforeach;?>
+
                 </ul>
             </div>
-            <div class="tab_cont active">
-                <div class="icon icon_photo"></div>
-                <div class="content">
-                    <p>Established fact reader will be <a href="#" class="main_link">distracted by the readable</a> content of a page when. Looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search.</p>
-                    <div class="tab_cols">
-                        <div class="tab_col">
-                            <ul class="list">
-                                <li><a href="#">Fact reader will be distracted.</a></li>
-                                <li><a href="#">Content of a page when.</a></li>
-                            </ul>
+            <? $i = 0;?>
+            <? foreach($events as $event):?>
+                <div class="tab_cont <?if($i == 0)echo 'active';?>">
+                    <? foreach($event as $even):?>
+                        <a href="<?=base_url()?>events/event/<?=$even['id']?>">
+                        <div class="event_home_block">
+                            <div class="img_overlok">
+                                <img src="<?=$even['main_img']?>" alt="">
+                            </div>
+                            <?=mb_substr($even['title'], 0, 30)?>
                         </div>
-                        <div class="tab_col">
-                            <ul class="list">
-                                <li><a href="#">Normal distribution of letters.</a></li>
-                                <li><a href="#">Opposed to using content here.</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab_cont">
-                <div class="icon icon_develop"></div>
-                <div class="content">
-                    <p>Fact reader will be distracted by the <a href="#" class="main_link">readable content</a> of a page when. Looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using content here, content here, making it look like readable English will uncover many web sites still in their infancy. Various versions have evolved over. There are many variations of passages of Lorem Ipsum available, but the majority.</p>
-                    <div class="tab_cols">
-                        <div class="tab_col">
-                            <ul class="list">
-                                <li><a href="#">Fact reader will be distracted.</a></li>
-                                <li><a href="#">Content of a page when.</a></li>
-                            </ul>
-                        </div>
-                        <div class="tab_col">
-                            <ul class="list">
-                                <li><a href="#">Normal distribution of letters.</a></li>
-                                <li><a href="#">Opposed to using content here.</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="tab_cont">
-                <div class="icon icon_program"></div>
-                <div class="content">
-                    <p>Distracted by the  readable content  of a page when. Looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using content here, content here, making it look like readable English will uncover many web sites still in their infancy. Various versions have  evolved over.  There are many variations of passages of Lorem Ipsum available.</p>
-                    <div class="tab_cols">
-                        <div class="tab_col">
-                            <ul class="list">
-                                <li><a href="#">Reader will be distracted.</a></li>
-                                <li><a href="#">Content of a page when.</a></li>
-                            </ul>
-                        </div>
-                        <div class="tab_col">
-                            <ul class="list">
-                                <li><a href="#">Normal distribution of letters.</a></li>
-                                <li><a href="#">Opposed to using content here.</a></li>
-                            </ul>
-                        </div>
-                        <div class="tab_col">
-                            <ul class="list">
-                                <li><a href="#">Normal distribution of letters.</a></li>
-                                <li><a href="#">Opposed to using content here.</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab_cont">
-                <div class="icon icon_comments"></div>
-                <div class="content">
-                    <p>Readable content  of a page when. Looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to <a href="#" class="main_link">using content here</a>, content here, making it look like readable English will uncover many web sites still in their infancy. Various versions have  evolved over.  There are many variations of passages of Lorem Ipsum available but the majority.</p>
-                    <div class="tab_cols">
-                        <div class="tab_col">
-                            <ul class="list">
-                                <li><a href="#">many variations of passages</a></li>
-                                <li><a href="#">Content of a page when.</a></li>
-                            </ul>
-                        </div>
-                        <div class="tab_col">
-                            <ul class="list">
-                                <li><a href="#">Normal distribution of letters.</a></li>
-                                <li><a href="#">Opposed to using content here.</a></li>
-                            </ul>
-                        </div>
-                        <div class="tab_col">
-                            <ul class="list">
-                                <li><a href="#">Normal distribution of letters.</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="latest-blogs" class="latest_block">
-
-            <div class="link_block">
-                <div class="overlay">
-                    <figure>
-                        <a href="<?=base_url()?>events/today" class="overlay-mask">
-
                         </a>
-                        <div class="img-border">
-                            <a href="<?=base_url()?>events/today"><img class="round_image" src="<?=base_url()?>public/img/image11.jpg" alt="pink light" /></a>
-                        </div>
-                    </figure>
+                    <? endforeach;?>
                 </div>
-                <div class="image_title">
-                    Сьогодні
-                </div>
-            </div>
-            <div class="link_block">
-                <div class="overlay">
-                    <figure>
-                        <a href="<?=base_url()?>events/week" class="overlay-mask">
-
-                        </a>
-                        <div class="img-border">
-                            <a href="<?=base_url()?>events/week"><img class="round_image" src="<?=base_url()?>public/img/image2.jpg" alt="pink light" /></a>
-                        </div>
-                    </figure>
-                </div>
-                <div class="image_title">
-                    Цього тижня
-                </div>
-            </div>
-            <div class="link_block">
-                <div class="overlay">
-                    <figure>
-                        <a href="<?=base_url()?>events/month" class="overlay-mask">
-
-                        </a>
-                        <div class="img-border">
-                            <a href="<?=base_url()?>events/month"><img class="round_image" src="<?=base_url()?>public/img/image3.jpg" alt="pink light" /></a>
-                        </div>
-                    </figure></div>
-                <div class="image_title">
-                    Протягом місяця
-                </div>
-            </div>
-
-
-
+            <? $i++;?>
+            <? endforeach;?>
 
         </div>
+
         <div class="line"></div>
         <div class="main_news_title">Останні новини Черкасс</div>
         <div class="columns">
@@ -447,6 +324,24 @@ if(strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot")){
 <?
 function russian_date($time){
     $date=explode(".", date("d.m.Y", $time));
+    switch ($date[1]){
+        case 1: $m='января'; break;
+        case 2: $m='февраля'; break;
+        case 3: $m='марта'; break;
+        case 4: $m='апреля'; break;
+        case 5: $m='мая'; break;
+        case 6: $m='июня'; break;
+        case 7: $m='июля'; break;
+        case 8: $m='августа'; break;
+        case 9: $m='сентября'; break;
+        case 10: $m='октября'; break;
+        case 11: $m='ноября'; break;
+        case 12: $m='декабря'; break;
+    }
+    echo $date[0].'&nbsp;'.$m.'&nbsp;'.$date[2];
+}
+function russian_datem($time){
+    $date=explode(".", date("d.m", $time));
     switch ($date[1]){
         case 1: $m='января'; break;
         case 2: $m='февраля'; break;

@@ -7,7 +7,7 @@ class Events extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->helper('http_auth');
+		//$this->load->helper('http_auth');
 		$this->load->model(array('mevents', 'mowners', 'mcategory'));
 		//$this->load->model('mcomment');
 		$this->data['menu_section'] = 'events';
@@ -73,7 +73,7 @@ class Events extends CI_Controller
 		// ...
        /// print_r($_FILES);die;
 		if($_FILES['file_upload']['size'] != 0){
-        $config['upload_path'] = './uploads/';
+        $config['upload_path'] = './uploads/images_events/';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$this->load->library('upload', $config);
         
@@ -88,7 +88,38 @@ class Events extends CI_Controller
 		else
 		{
 			$data = array('upload_data' => $this->upload->data());
-            $article['main_img'] = base_url().'uploads/'.$data['upload_data']['file_name'];
+            $article['main_img'] = base_url().'uploads/images_events/'.$data['upload_data']['file_name'];
+
+            $image_name = $data['upload_data']['file_name'];
+            $config_res['image_library'] = 'gd2';
+            $config_res['source_image']	= $data['upload_data']['full_path'];
+            $config_res['new_image'] = $article['thumb_small'] = $data['upload_data']['file_path'].'thumbs/thumb_small_'.$image_name;
+            $config_res['maintain_ratio'] = TRUE;
+            $config_res['create_thumb'] = TRUE;
+            $config_res['width']	 = 100;
+            $config_res['height']	= 150;
+          //  print_r($config_res);die;
+            $this->image_lib->initialize($config_res);
+
+            if ( ! $this->image_lib->resize())
+            {
+                echo $this->image_lib->display_errors();die;
+            }
+            $image_name = $data['upload_data']['file_name'];
+            $config_res['image_library'] = 'gd2';
+            $config_res['source_image']	= $data['upload_data']['full_path'];
+            $config_res['new_image'] = $article['thumb_medium'] = $data['upload_data']['file_path'].'thumbs/thumb_medium_'.$image_name;
+            $config_res['maintain_ratio'] = TRUE;
+            $config_res['create_thumb'] = TRUE;
+            $config_res['width']	 = 204;
+            $config_res['height']	= 300;
+            //  print_r($config_res);die;
+            $this->image_lib->initialize($config_res);
+            if ( ! $this->image_lib->resize())
+            {
+                echo $this->image_lib->display_errors();die;
+            }
+
 		}
 
         }

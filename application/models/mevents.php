@@ -30,6 +30,20 @@ class Mevents extends CI_Model
 		//print_r($result);die;
         return $result ? $result : false;
 	}
+    function events_list_homepage($start_time, $end_time)
+    {
+
+        $this->db->select('id, title, time, main_img, realtime');
+        $this->db->where('realtime >',$start_time);
+        $this->db->where('realtime <',$end_time);
+        //$this->db->group_by('title');
+        $this->db->order_by('realtime', 'asc');
+        $query = $this->db->get('events');
+        $result = $query->result_array();
+        //echo  $this->db->last_query();die;
+        //print_r($result);die;
+        return $result ? $result : false;
+    }
     function events_month()
     {
         $this->db->select('events.*, owner.name,category.category_name,category.alias');
@@ -81,6 +95,7 @@ class Mevents extends CI_Model
         $this->db->join('category', 'category.id = events.category');
 		$query = $this->db->get('events');
 		$result = $query->row_array();
+        //echo  $this->db->last_query();die;
 		return $result ? $result : false;
 	}
 	function events_list_by_category($name)
